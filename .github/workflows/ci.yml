@@ -8,7 +8,6 @@ on:
     paths-ignore:
       - '**/*.md'
       - '**/*.gitignore'
-      - LICENSE
 
 jobs:
   typecheck:
@@ -19,7 +18,7 @@ jobs:
       - name: Setup Environment
         uses: ./.github/actions/setup
 
-      - name: typecheck
+      - name: Typecheck
         run: pnpm typecheck
 
   lint:
@@ -30,7 +29,7 @@ jobs:
       - name: Setup Environment
         uses: ./.github/actions/setup
 
-      - name: lint
+      - name: Lint
         run: pnpm lint
 
   build:
@@ -41,5 +40,5 @@ jobs:
       - name: Setup Environment
         uses: ./.github/actions/setup
 
-      - name: build
+      - name: Build
         run: pnpm build
