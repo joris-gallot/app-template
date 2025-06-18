@@ -10,11 +10,14 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
+    "typecheck": "nr -r typecheck",
+    "build": "nr -r build",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.14.1",
+    "@antfu/ni": "^25.0.0",
     "eslint": "^9.28.0"
   }
 }

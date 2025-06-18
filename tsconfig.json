@@ -3,7 +3,6 @@
     "target": "ESNext",
     "strict": true,
     "noUncheckedIndexedAccess": true,
-    "noEmit": true,
     "forceConsistentCasingInFileNames": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true

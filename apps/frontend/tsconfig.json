@@ -9,7 +9,8 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "outDir": "./dist"
   },
   "include": ["**/*.ts", "src/**/*.vue"],
   "exclude": ["node_modules", "dist"]
