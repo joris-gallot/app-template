@@ -1,13 +1,8 @@
-# frontend
-
-## Project Setup
-
-```sh
+```
 pnpm install
+pnpm run dev
 ```
 
-### Development
-
-```sh
-pnpm dev
+```
+open http://localhost:3001
 ```
