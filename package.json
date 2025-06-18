@@ -12,6 +12,8 @@
   "scripts": {
     "typecheck": "nr -r typecheck",
     "build": "nr -r build",
+    "dev:frontend": "pnpm --filter frontend dev",
+    "dev:backend": "pnpm --filter backend dev",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
