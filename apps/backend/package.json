@@ -8,15 +8,15 @@
     "start": "node dist/index.js"
   },
   "dependencies": {
-    "@hono/node-server": "^1.14.4",
-    "@hono/trpc-server": "^0.3.4",
-    "@trpc/server": "^11.4.2",
-    "hono": "^4.7.11",
-    "zod": "^3.25.67"
+    "@hono/node-server": "catalog:hono",
+    "@hono/trpc-server": "catalog:hono",
+    "@trpc/server": "catalog:trpc",
+    "hono": "catalog:hono",
+    "zod": "catalog:zod"
   },
   "devDependencies": {
-    "@types/node": "^20.11.17",
-    "tsx": "^4.7.1",
-    "typescript": "^5.8.3"
+    "@types/node": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev"
   }
 }

@@ -3,6 +3,7 @@ import antfu from '@antfu/eslint-config'
 export default antfu({
   vue: true,
   typescript: true,
+  yaml: true,
   rules: {
     'no-restricted-imports': ['error', {
       paths: [

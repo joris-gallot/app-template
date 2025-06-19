@@ -10,26 +10,26 @@
     "typecheck": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@trpc/client": "^11.4.2",
-    "@vueuse/core": "^13.3.0",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.517.0",
-    "reka-ui": "^2.3.1",
-    "tailwind-merge": "^3.3.1",
-    "tw-animate-css": "^1.3.4",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0",
-    "zod": "^3.25.67"
+    "@trpc/client": "catalog:trpc",
+    "@vueuse/core": "catalog:vue",
+    "class-variance-authority": "catalog:css",
+    "clsx": "catalog:css",
+    "lucide-vue-next": "catalog:vue",
+    "reka-ui": "catalog:vue",
+    "tailwind-merge": "catalog:tailwind",
+    "tw-animate-css": "catalog:tailwind",
+    "vue": "catalog:vue",
+    "vue-router": "catalog:vue",
+    "zod": "catalog:zod"
   },
   "devDependencies": {
-    "@julr/vite-plugin-validate-env": "^2.1.0",
-    "@tailwindcss/vite": "^4.1.10",
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-vue": "^5.2.3",
-    "tailwindcss": "^4.1.10",
-    "typescript": "~5.8.0",
-    "vite": "^6.2.4",
-    "vue-tsc": "^2.2.8"
+    "@julr/vite-plugin-validate-env": "catalog:vite",
+    "@tailwindcss/vite": "catalog:tailwind",
+    "@types/node": "catalog:dev",
+    "@vitejs/plugin-vue": "catalog:vue",
+    "tailwindcss": "catalog:tailwind",
+    "typescript": "catalog:dev",
+    "vite": "catalog:vite",
+    "vue-tsc": "catalog:vue"
   }
 }

@@ -1,2 +1,40 @@
 packages:
   - 'apps/*'
+
+catalogs:
+  css:
+    class-variance-authority: ^0.7.1
+    clsx: ^2.1.1
+  dev:
+    '@antfu/ni': ^25.0.0
+    '@types/node': ^20.11.17
+    tsx: ^4.7.1
+    typescript: ^5.8.3
+  hono:
+    '@hono/node-server': ^1.14.4
+    '@hono/trpc-server': ^0.3.4
+    hono: ^4.7.11
+  lint:
+    '@antfu/eslint-config': ^4.14.1
+    eslint: ^9.28.0
+  tailwind:
+    '@tailwindcss/vite': ^4.1.10
+    tailwind-merge: ^3.3.1
+    tailwindcss: ^4.1.10
+    tw-animate-css: ^1.3.4
+  trpc:
+    '@trpc/client': ^11.4.2
+    '@trpc/server': ^11.4.2
+  vite:
+    '@julr/vite-plugin-validate-env': ^2.1.0
+    vite: ^6.2.4
+  vue:
+    '@vitejs/plugin-vue': ^5.2.3
+    '@vueuse/core': ^13.3.0
+    lucide-vue-next: ^0.517.0
+    reka-ui: ^2.3.1
+    vue: ^3.5.13
+    vue-router: ^4.5.0
+    vue-tsc: ^2.2.8
+  zod:
+    zod: ^3.25.67

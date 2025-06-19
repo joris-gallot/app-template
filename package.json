@@ -18,8 +18,8 @@
     "lint:fix": "eslint --fix"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.14.1",
-    "@antfu/ni": "^25.0.0",
-    "eslint": "^9.28.0"
+    "@antfu/eslint-config": "catalog:lint",
+    "@antfu/ni": "catalog:dev",
+    "eslint": "catalog:lint"
   }
 }
