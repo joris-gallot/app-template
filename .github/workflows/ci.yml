@@ -9,6 +9,9 @@ on:
       - '**/*.md'
       - '**/*.gitignore'
 
+env:
+  VITE_BACKEND_URL: whatever
+
 jobs:
   typecheck:
     name: Typecheck
