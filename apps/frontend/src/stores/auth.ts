@@ -3,7 +3,7 @@ import { shallowRef } from 'vue'
 
 export const useAuthStore = createGlobalState(
   () => {
-    const isAuth = shallowRef(false)
+    const isAuth = shallowRef(true)
 
     return { isAuth }
   },
