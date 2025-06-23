@@ -1,12 +1,20 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
-import AppLayout from '@/components/AppLayout.vue'
-import { useAuthStore } from '@/stores/auth'
+import type { Layout } from '@/types/layouts'
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
+import AppLayout from '@/components/layouts/AppLayout.vue'
+import AuthLayout from '@/components/layouts/AuthLayout.vue'
 
-const { isAuth } = useAuthStore()
+const route = useRoute()
+
+const layouts: Record<Layout, unknown> = {
+  auth: AuthLayout,
+  app: AppLayout,
+}
+
+const currentLayout = computed(() => route.meta.layout ? layouts[route.meta.layout] : AppLayout)
 </script>
 
 <template>
-  <AppLayout v-if="isAuth" />
-  <RouterView v-else />
+  <component :is="currentLayout" />
 </template>

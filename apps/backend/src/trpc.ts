@@ -1,15 +1,25 @@
-import { initTRPC } from '@trpc/server'
-import { z } from 'zod/v4'
+import type { Context } from './context'
 
-const t = initTRPC.create()
+import { initTRPC, TRPCError } from '@trpc/server'
 
-const publicProcedure = t.procedure
-const router = t.router
+export const t = initTRPC.context<Context>().create()
 
-export const appRouter = router({
-  hello: publicProcedure.input(z.string().nullish()).query(({ input }) => {
-    return `Hello ${input ?? 'World'}!`
-  }),
-})
+export const publicProcedure = t.procedure
 
-export type AppRouter = typeof appRouter
+export const authProcedure = t.procedure.use(
+  async (opts) => {
+    const { ctx } = opts
+
+    if (!ctx.user) {
+      throw new TRPCError({ code: 'UNAUTHORIZED' })
+    }
+
+    return opts.next({
+      ctx: {
+        user: ctx.user,
+      },
+    })
+  },
+)
+
+export const router = t.router

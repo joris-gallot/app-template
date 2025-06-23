@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import type { TRPCError } from '@/types/trpc'
+import { isTRPCClientError } from '@trpc/client'
+import { ref } from 'vue'
+import TrpcError from '@/components/TrpcError.vue'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -10,6 +14,37 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { useAuthStore } from '@/stores/auth'
+import { client } from '@/trpc'
+
+const email = ref('')
+const password = ref('')
+const trpcError = ref<TRPCError>()
+const { setToken } = useAuthStore()
+
+async function handleSubmit() {
+  trpcError.value = undefined
+
+  const res = await client.auth.signup.query({
+    email: email.value,
+    password: password.value,
+  }).catch((error) => {
+    if (isTRPCClientError(error)) {
+      trpcError.value = error
+    }
+    else {
+      console.error('Unexpected error:', error)
+    }
+
+    return null
+  })
+
+  if (!res) {
+    return
+  }
+
+  setToken(res.token)
+}
 </script>
 
 <template>
@@ -51,20 +86,30 @@ import { Label } from '@/components/ui/label'
             </span>
           </div>
         </div>
-        <div class="grid gap-2">
-          <Label for="email">Email</Label>
-          <Input id="email" type="email" placeholder="m@example.com" />
-        </div>
-        <div class="grid gap-2">
-          <Label for="password">Password</Label>
-          <Input id="password" type="password" />
-        </div>
+        <form id="signup" class="space-y-4" @submit.prevent="handleSubmit">
+          <div class="grid gap-2">
+            <Label for="email">Email</Label>
+            <Input id="email" v-model="email" required autocomplete="email" type="email" placeholder="m@example.com" />
+          </div>
+          <div class="grid gap-2">
+            <Label for="password">Password</Label>
+            <Input id="password" v-model="password" required autocomplete="current-password" type="password" />
+          </div>
+
+          <TrpcError v-if="trpcError" :error="trpcError" />
+        </form>
       </CardContent>
       <CardFooter>
-        <Button class="w-full">
+        <Button class="w-full" form="signup" type="submit">
           Create account
         </Button>
       </CardFooter>
+      <div class="text-center text-sm">
+        Already have an account?
+        <RouterLink :to="{ name: 'Signin' }" class="underline">
+          Sign in
+        </RouterLink>
+      </div>
     </Card>
   </div>
 </template>

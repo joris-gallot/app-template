@@ -2,7 +2,7 @@
 import { useAsyncState } from '@vueuse/core'
 import { client } from '@/trpc'
 
-const { state } = useAsyncState(client.hello.query(), null)
+const { state } = useAsyncState(client.hello.world.query(), null)
 </script>
 
 <template>

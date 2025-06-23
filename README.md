@@ -1,6 +1,7 @@
 # app template
 
 ```
+docker compose up -d
 nvm use
 pnpm install
 pnpm dev:backend

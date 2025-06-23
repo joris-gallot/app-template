@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,11 +15,32 @@ const router = createRouter({
       component: () => import('../views/Settings.vue'),
     },
     {
-      path: '/auth',
-      name: 'Auth',
-      component: () => import('../views/Auth.vue'),
+      path: '/signin',
+      name: 'Signin',
+      component: () => import('../views/Signin.vue'),
+      meta: {
+        noAuth: true,
+        layout: 'auth',
+      },
+    },
+    {
+      path: '/signup',
+      name: 'Signup',
+      component: () => import('../views/Signup.vue'),
+      meta: {
+        noAuth: true,
+        layout: 'auth',
+      },
     },
   ],
+})
+
+router.beforeEach(async (to) => {
+  const { isAuthenticated } = useAuthStore()
+
+  if (!to.meta.noAuth && !isAuthenticated.value) {
+    return { name: 'Signin' }
+  }
 })
 
 export default router
