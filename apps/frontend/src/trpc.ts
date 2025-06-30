@@ -7,24 +7,24 @@ export const client = createTRPCProxyClient<BackendTrpcRouter>({
     httpBatchLink({
       url: `${import.meta.env.VITE_BACKEND_URL}/trpc`,
       headers() {
-        let authHeaders: { Authorization?: string } = {}
+        let headers: { Authorization?: string } = {}
 
         const { token } = useAuthStore()
 
         if (token.value) {
-          authHeaders = {
+          headers = {
             Authorization: `Bearer ${token.value}`,
           }
         }
 
-        return authHeaders
+        return headers
       },
       fetch: async (url, options): Promise<Response> => {
         const { setToken } = useAuthStore()
         const res = await fetch(url, options)
 
         if (res.status === 401) {
-          setToken(null)
+          setToken(undefined)
         }
 
         return res

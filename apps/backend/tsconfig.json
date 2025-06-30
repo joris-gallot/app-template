@@ -2,7 +2,10 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "types": ["node"],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "paths": {
+      "@common/*": ["../common/src/*"],
+    }
   },
   "exclude": ["node_modules", "dist"]
 }

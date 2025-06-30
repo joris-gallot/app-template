@@ -25,7 +25,7 @@ const { setToken } = useAuthStore()
 async function handleSubmit() {
   trpcError.value = undefined
 
-  const res = await client.auth.signin.query({
+  const res = await client.auth.signin.mutate({
     email: email.value,
     password: password.value,
   }).catch((error) => {

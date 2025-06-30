@@ -35,7 +35,7 @@ const router = createRouter({
   ],
 })
 
-router.beforeEach(async (to) => {
+router.beforeResolve((to) => {
   const { isAuthenticated } = useAuthStore()
 
   if (!to.meta.noAuth && !isAuthenticated.value) {
