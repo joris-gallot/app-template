@@ -1,4 +1,4 @@
-import type { BackendTrpcRouter } from '@/types/trpc'
+import type { BackendTrpcRouter } from '@common/index'
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client'
 import { useAuthStore } from './stores/auth'
 
