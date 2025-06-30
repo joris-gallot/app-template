@@ -30,7 +30,7 @@ export const authRouter = router(
         email: input.email.toLowerCase(),
         password: hashedPassword,
       }).returning({ insertedId: users.id }).catch((error) => {
-        if (error.cause.constraint === 'users_email_unique_index') {
+        if (error.cause.constraint === 'users_email_unique') {
           throw new TRPCError({
             code: 'BAD_REQUEST',
             message: formatErrors([{ message: 'Email already taken' }]),
