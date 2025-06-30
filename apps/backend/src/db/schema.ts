@@ -10,5 +10,5 @@ export const users = pgTable('users', {
   createdAt: timestamp('created_at', { mode: 'date', precision: 3 }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { mode: 'date', precision: 3 }).notNull().defaultNow().$onUpdate(() => new Date()),
 }, table => [
-  uniqueIndex('emailUniqueIndex').on(sql`lower(${table.email})`),
+  uniqueIndex('users_email_unique_index').on(sql`lower(${table.email})`),
 ])
