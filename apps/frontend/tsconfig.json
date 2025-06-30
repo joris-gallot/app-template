@@ -6,7 +6,7 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable", "ESNext.Collection"],
     "paths": {
       "@/*": ["./src/*"],
-      "@common/*": ["../common/src/*"],
+      "@common/*": ["../common/src/*"]
     },
     "types": ["vite/client"],
     "outDir": "./dist"

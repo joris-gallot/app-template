@@ -1,11 +1,11 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "types": ["node"],
-    "outDir": "./dist",
     "paths": {
-      "@common/*": ["../common/src/*"],
-    }
+      "@common/*": ["../common/src/*"]
+    },
+    "types": ["node"],
+    "outDir": "./dist"
   },
   "exclude": ["node_modules", "dist"]
 }
