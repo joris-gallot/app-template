@@ -1,23 +1,31 @@
+import { signinSchema, signupSchema } from '@common/schemas/auth'
 import { TRPCError } from '@trpc/server'
 import { compare, genSalt, hash } from 'bcrypt-ts'
 import { eq } from 'drizzle-orm'
 import { sign } from 'hono/jwt'
-import z from 'zod/v4'
 import { db } from '../db'
 import { users } from '../db/schema'
 import { env } from '../env'
 import { formatErrors } from '../error'
 import { authProcedure, publicProcedure, router } from '../trpc'
 
-const signupSchema = z.object({
-  email: z.email({ error: 'Email must be a valid email address' }),
-  password: z.string().min(8, { error: 'Password must be at least 8 characters long' }),
-})
+async function findUniqueUsername(baseUsername: string): Promise<string> {
+  let username = baseUsername
+  let counter = 1
 
-const signinSchema = z.object({
-  email: z.email({ error: 'Email must be a valid email address' }),
-  password: z.string(),
-})
+  while (true) {
+    const existingUser = await db.query.users.findFirst({
+      where: eq(users.username, username),
+    })
+
+    if (!existingUser) {
+      return username
+    }
+
+    username = `${baseUsername}${counter}`
+    counter++
+  }
+}
 
 export const authRouter = router(
   {
@@ -25,8 +33,11 @@ export const authRouter = router(
       const salt = await genSalt(10)
       const hashedPassword = await hash(input.password, salt)
 
+      const baseUsername = input.email.split('@').at(0)!
+      const uniqueUsername = await findUniqueUsername(baseUsername)
+
       const [user] = await db.insert(users).values({
-        username: input.email.split('@').at(0)!,
+        username: uniqueUsername,
         email: input.email.toLowerCase(),
         password: hashedPassword,
       }).returning({ insertedId: users.id }).catch((error) => {
@@ -43,7 +54,7 @@ export const authRouter = router(
       if (!user) {
         throw new TRPCError({
           code: 'INTERNAL_SERVER_ERROR',
-          message: 'Failed to create user',
+          message: formatErrors([{ message: 'Failed to create account' }]),
         })
       }
 

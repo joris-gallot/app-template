@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { TRPCError } from '@/types/trpc'
+import { signinSchema } from '@common/schemas/auth'
 import { isTRPCClientError } from '@trpc/client'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
 import { ref } from 'vue'
 import TrpcError from '@/components/TrpcError.vue'
 import { Button } from '@/components/ui/button'
@@ -12,23 +15,24 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+
 import { useAuthStore } from '@/stores/auth'
 import { client } from '@/trpc'
 
-const email = ref('')
-const password = ref('')
 const trpcError = ref<TRPCError>()
 const { setToken } = useAuthStore()
 
-async function handleSubmit() {
+const { handleSubmit } = useForm({
+  name: 'SignupForm',
+  validationSchema: toTypedSchema(signinSchema),
+})
+
+const onSubmit = handleSubmit(async (values) => {
   trpcError.value = undefined
 
-  const res = await client.auth.signin.mutate({
-    email: email.value,
-    password: password.value,
-  }).catch((error) => {
+  const res = await client.auth.signin.mutate(values).catch((error) => {
     if (isTRPCClientError(error)) {
       trpcError.value = error
     }
@@ -44,7 +48,7 @@ async function handleSubmit() {
   }
 
   setToken(res.token)
-}
+})
 </script>
 
 <template>
@@ -86,27 +90,40 @@ async function handleSubmit() {
             </span>
           </div>
         </div>
-        <form id="signin-form" class="space-y-4" @submit.prevent="handleSubmit">
-          <div class="grid gap-2">
-            <Label for="email">Email</Label>
-            <Input id="email" v-model="email" required autocomplete="email" type="email" placeholder="m@example.com" />
-          </div>
-          <div class="grid gap-2">
-            <Label for="password">Password</Label>
-            <Input id="password" v-model="password" required autocomplete="current-password" type="password" />
-          </div>
+        <form id="signin-form" class="space-y-4" @submit.prevent="onSubmit">
+          <FormField v-slot="{ componentField }" name="email">
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+
+              <FormControl>
+                <Input data-testid="email-input" required autocomplete="email" type="email" placeholder="m@example.com" v-bind="componentField" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
+          <FormField v-slot="{ componentField }" name="password">
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+
+              <FormControl>
+                <Input data-testid="password-input" required type="password" autocomplete="current-password" v-bind="componentField" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
 
           <TrpcError v-if="trpcError" :error="trpcError" />
         </form>
       </CardContent>
       <CardFooter>
-        <Button class="w-full" form="signin-form" type="submit">
+        <Button class="w-full" form="signin-form" data-testid="signin-submit" type="submit">
           Sign in
         </Button>
       </CardFooter>
       <div class="text-center text-sm">
         Don't have an account?
-        <RouterLink :to="{ name: 'Signup' }" class="underline">
+        <RouterLink data-testid="signup-link" :to="{ name: 'Signup' }" class="underline">
           Sign up
         </RouterLink>
       </div>

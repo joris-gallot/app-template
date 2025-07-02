@@ -3,10 +3,17 @@ import { trpcServer } from '@hono/trpc-server'
 
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
+import pino from 'pino'
 import { createContext } from './context'
 import { appRouter } from './router'
 
 const app = new Hono()
+
+const logger = pino({
+  transport: {
+    target: 'pino-pretty',
+  },
+})
 
 app.use(
   '/trpc/*',
@@ -14,6 +21,9 @@ app.use(
   trpcServer({
     router: appRouter,
     createContext,
+    onError: ({ error }) => {
+      logger.error(error)
+    },
   }),
 )
 

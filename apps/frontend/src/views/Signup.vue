@@ -1,7 +1,11 @@
 <script setup lang="ts">
 import type { TRPCError } from '@/types/trpc'
+import { signupSchema } from '@common/schemas/auth'
 import { isTRPCClientError } from '@trpc/client'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useForm } from 'vee-validate'
 import { ref } from 'vue'
+import z from 'zod/v4'
 import TrpcError from '@/components/TrpcError.vue'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,22 +16,32 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { useAuthStore } from '@/stores/auth'
 import { client } from '@/trpc'
 
-const email = ref('')
-const password = ref('')
 const trpcError = ref<TRPCError>()
 const { setToken } = useAuthStore()
 
-async function handleSubmit() {
+const signupSchemaWithConfirmPwd = signupSchema.extend({
+  confirmPassword: z.string(),
+}).refine(data => data.password === data.confirmPassword, {
+  message: 'Passwords don\'t match',
+  path: ['confirmPassword'],
+})
+
+const { handleSubmit } = useForm({
+  name: 'SignupForm',
+  validationSchema: toTypedSchema(signupSchemaWithConfirmPwd),
+})
+
+const onSubmit = handleSubmit(async (values) => {
   trpcError.value = undefined
 
   const res = await client.auth.signup.mutate({
-    email: email.value,
-    password: password.value,
+    email: values.email,
+    password: values.password,
   }).catch((error) => {
     if (isTRPCClientError(error)) {
       trpcError.value = error
@@ -44,7 +58,7 @@ async function handleSubmit() {
   }
 
   setToken(res.token)
-}
+})
 </script>
 
 <template>
@@ -86,27 +100,51 @@ async function handleSubmit() {
             </span>
           </div>
         </div>
-        <form id="signup" class="space-y-4" @submit.prevent="handleSubmit">
-          <div class="grid gap-2">
-            <Label for="email">Email</Label>
-            <Input id="email" v-model="email" required autocomplete="email" type="email" placeholder="m@example.com" />
-          </div>
-          <div class="grid gap-2">
-            <Label for="password">Password</Label>
-            <Input id="password" v-model="password" required autocomplete="current-password" type="password" />
-          </div>
+        <form id="signup" class="space-y-4" @submit.prevent="onSubmit">
+          <FormField v-slot="{ componentField }" name="email">
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+
+              <FormControl>
+                <Input data-testid="email-input" required autocomplete="email" type="email" placeholder="m@example.com" v-bind="componentField" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
+          <FormField v-slot="{ componentField }" name="password">
+            <FormItem>
+              <FormLabel>Password</FormLabel>
+
+              <FormControl>
+                <Input data-testid="password-input" required type="password" autocomplete="new-password" v-bind="componentField" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
+          <FormField v-slot="{ componentField }" name="confirmPassword">
+            <FormItem>
+              <FormLabel>Confirm Password</FormLabel>
+
+              <FormControl>
+                <Input data-testid="confirm-password-input" required type="password" autocomplete="new-password" v-bind="componentField" />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
 
           <TrpcError v-if="trpcError" :error="trpcError" />
         </form>
       </CardContent>
       <CardFooter>
-        <Button class="w-full" form="signup" type="submit">
+        <Button class="w-full" form="signup" data-testid="signup-submit" type="submit">
           Create account
         </Button>
       </CardFooter>
       <div class="text-center text-sm">
         Already have an account?
-        <RouterLink :to="{ name: 'Signin' }" class="underline">
+        <RouterLink data-testid="signin-link" :to="{ name: 'Signin' }" class="underline">
           Sign in
         </RouterLink>
       </div>
