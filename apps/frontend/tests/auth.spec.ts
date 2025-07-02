@@ -18,7 +18,9 @@ test.describe('Auth', () => {
   })
 
   test('sign in', async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/signup')
+
+    await page.getByTestId('signin-link').click()
     await expect(page).toHaveURL('/signin')
 
     await page.getByTestId('email-input').fill('test@gmail.com')
