@@ -15,6 +15,9 @@ test.describe('Auth', () => {
     await page.getByTestId('signup-submit').click()
 
     await expect(page).toHaveURL('/')
+
+    await page.getByTestId('signout-btn').click()
+    await expect(page).toHaveURL('/signin')
   })
 
   test('sign in', async ({ page }) => {
@@ -29,5 +32,8 @@ test.describe('Auth', () => {
     await page.getByTestId('signin-submit').click()
 
     await expect(page).toHaveURL('/')
+
+    await page.getByTestId('signout-btn').click()
+    await expect(page).toHaveURL('/signin')
   })
 })

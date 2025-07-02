@@ -58,7 +58,7 @@ async function signout() {
         <SidebarGroupContent>
           <SidebarMenu>
             <SidebarMenuItem>
-              <Button variant="ghost-destructive" class="w-full" @click="signout">
+              <Button data-testid="signout-btn" variant="ghost-destructive" class="w-full" @click="signout">
                 <LogOut />
                 <span>Log out</span>
               </Button>
