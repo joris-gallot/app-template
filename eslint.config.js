@@ -4,6 +4,7 @@ export default antfu({
   vue: true,
   typescript: true,
   yaml: true,
+  ignores: ['**/dist', '**/node_modules', '**/playwright-report', '**/test-results'],
   rules: {
     'no-restricted-imports': ['error', {
       paths: [
