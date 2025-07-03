@@ -20,6 +20,7 @@ catalogs:
     tsx: ^4.7.1
     typescript: ^5.8.3
     "dotenv": "^16.5.0"
+    "typestep": "^0.5.2"
   hono:
     '@hono/node-server': ^1.14.4
     '@hono/trpc-server': ^0.3.4
