@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@trpc/client": "catalog:trpc",
-    "@vee-validate/zod": "^4.15.1",
+    "@vee-validate/zod": "catalog:zod",
     "@vueuse/core": "catalog:vue",
     "class-variance-authority": "catalog:css",
     "clsx": "catalog:css",
@@ -20,15 +20,15 @@
     "reka-ui": "catalog:vue",
     "tailwind-merge": "catalog:tailwind",
     "tw-animate-css": "catalog:tailwind",
-    "vee-validate": "^4.15.1",
+    "vee-validate": "catalog:vue",
     "vue": "catalog:vue",
     "vue-router": "catalog:vue",
-    "vue-sonner": "^2.0.1",
+    "vue-sonner": "catalog:vue",
     "zod": "catalog:zod"
   },
   "devDependencies": {
     "@julr/vite-plugin-validate-env": "catalog:vite",
-    "@playwright/test": "^1.53.2",
+    "@playwright/test": "catalog:test",
     "@tailwindcss/vite": "catalog:tailwind",
     "@types/node": "catalog:dev",
     "@vitejs/plugin-vue": "catalog:vue",
