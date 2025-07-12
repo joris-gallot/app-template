@@ -104,7 +104,7 @@ catalogs:
       version: 6.3.5
   vue:
     '@vitejs/plugin-vue':
-      specifier: ^5.2.3
+      specifier: ^5.2.4
       version: 5.2.4
     '@vueuse/core':
       specifier: ^13.3.0
