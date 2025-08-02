@@ -42,7 +42,7 @@ catalogs:
     '@julr/vite-plugin-validate-env': ^2.1.0
     vite: ^6.2.4
   vue:
-    '@vitejs/plugin-vue': ^5.2.3
+    '@vitejs/plugin-vue': ^5.2.4
     '@vueuse/core': ^13.3.0
     lucide-vue-next: ^0.517.0
     reka-ui: ^2.3.1
