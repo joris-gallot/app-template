@@ -39,7 +39,7 @@ catalogs:
       specifier: ^16.5.0
       version: 16.5.0
     tsx:
-      specifier: ^4.7.1
+      specifier: ^4.20.3
       version: 4.20.3
     typescript:
       specifier: ^5.8.3
