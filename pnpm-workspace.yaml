@@ -47,7 +47,7 @@ catalogs:
     lucide-vue-next: ^0.517.0
     reka-ui: ^2.3.1
     vee-validate: ^4.15.1
-    vue: ^3.5.13
+    vue: ^3.5.18
     vue-router: ^4.5.0
     vue-sonner: ^2.0.1
     vue-tsc: ^2.2.8
