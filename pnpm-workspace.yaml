@@ -23,7 +23,7 @@ catalogs:
     '@hono/trpc-server': ^0.3.4
     hono: ^4.8.12
   lint:
-    '@antfu/eslint-config': ^4.14.1
+    '@antfu/eslint-config': ^4.19.0
     eslint: ^9.28.0
   log:
     pino: ^9.7.0
