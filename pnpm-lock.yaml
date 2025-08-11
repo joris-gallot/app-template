@@ -135,8 +135,8 @@ catalogs:
       specifier: ^4.15.1
       version: 4.15.1
     zod:
-      specifier: ^3.25.67
-      version: 3.25.67
+      specifier: ^3.25.76
+      version: 3.25.76
 
 importers:
 
@@ -183,7 +183,7 @@ importers:
         version: 9.7.0
       zod:
         specifier: catalog:zod
-        version: 3.25.67
+        version: 3.25.76
     devDependencies:
       '@types/node':
         specifier: catalog:dev
@@ -208,7 +208,7 @@ importers:
     dependencies:
       zod:
         specifier: catalog:zod
-        version: 3.25.67
+        version: 3.25.76
 
   apps/frontend:
     dependencies:
@@ -217,7 +217,7 @@ importers:
         version: 11.4.2(@trpc/server@11.4.2(typescript@5.8.3))(typescript@5.8.3)
       '@vee-validate/zod':
         specifier: catalog:zod
-        version: 4.15.1(vue@3.5.18(typescript@5.8.3))(zod@3.25.67)
+        version: 4.15.1(vue@3.5.18(typescript@5.8.3))(zod@3.25.76)
       '@vueuse/core':
         specifier: catalog:vue
         version: 13.3.0(vue@3.5.18(typescript@5.8.3))
@@ -253,7 +253,7 @@ importers:
         version: 2.0.2
       zod:
         specifier: catalog:zod
-        version: 3.25.67
+        version: 3.25.76
     devDependencies:
       '@julr/vite-plugin-validate-env':
         specifier: catalog:vite
@@ -2959,8 +2959,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zod@3.25.67:
-    resolution: {integrity: sha512-idA2YXwpCdqUSKRCACDE6ItZD9TZzy3OZMtpfLoh6oPR47lipysRrJfjzMqFxQ3uJuUPyUeWe1r9vLH33xO/Qw==}
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -3703,11 +3703,11 @@ snapshots:
       '@typescript-eslint/types': 8.34.1
       eslint-visitor-keys: 4.2.1
 
-  '@vee-validate/zod@4.15.1(vue@3.5.18(typescript@5.8.3))(zod@3.25.67)':
+  '@vee-validate/zod@4.15.1(vue@3.5.18(typescript@5.8.3))(zod@3.25.76)':
     dependencies:
       type-fest: 4.41.0
       vee-validate: 4.15.1(vue@3.5.18(typescript@5.8.3))
-      zod: 3.25.67
+      zod: 3.25.76
     transitivePeerDependencies:
       - vue
 
@@ -5610,6 +5610,6 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zod@3.25.67: {}
+  zod@3.25.76: {}
 
   zwitch@2.0.4: {}
