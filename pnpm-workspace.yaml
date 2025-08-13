@@ -19,7 +19,7 @@ catalogs:
     typescript: ^5.8.3
     typestep: ^0.5.2
   hono:
-    '@hono/node-server': ^1.14.4
+    '@hono/node-server': ^1.18.2
     '@hono/trpc-server': ^0.3.4
     hono: ^4.8.12
   lint:
