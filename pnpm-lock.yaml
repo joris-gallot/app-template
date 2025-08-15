@@ -97,8 +97,8 @@ catalogs:
       version: 11.4.4
   vite:
     '@julr/vite-plugin-validate-env':
-      specifier: ^2.1.0
-      version: 2.1.0
+      specifier: ^2.2.0
+      version: 2.2.0
     vite:
       specifier: ^6.3.5
       version: 6.3.5
@@ -257,7 +257,7 @@ importers:
     devDependencies:
       '@julr/vite-plugin-validate-env':
         specifier: catalog:vite
-        version: 2.1.0(vite@6.3.5(@types/node@20.19.1)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.4)(yaml@2.8.0))
+        version: 2.2.0(vite@6.3.5(@types/node@20.19.1)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.4)(yaml@2.8.0))
       '@playwright/test':
         specifier: catalog:test
         version: 1.53.2
@@ -814,11 +814,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@julr/vite-plugin-validate-env@2.1.0':
-    resolution: {integrity: sha512-cfjj5wTc/k/KPYGxNJ6vyavPLhFB7ANIbyRuIZMGtwhPXabhz4yhc5dRvBuh//2a59sKEjOFp/r2XIYycH6lJw==}
+  '@julr/vite-plugin-validate-env@2.2.0':
+    resolution: {integrity: sha512-R00QZcgMNsATxI9beeM1n7VwMcsSyxFnvElJ0S1ZmglmeGzNyOzaVlfxyGgRb0NmIPYGwPSoJOnFI5BYR7Quug==}
     engines: {node: '>=22'}
     peerDependencies:
-      vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+      vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3367,7 +3367,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@julr/vite-plugin-validate-env@2.1.0(vite@6.3.5(@types/node@20.19.1)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.4)(yaml@2.8.0))':
+  '@julr/vite-plugin-validate-env@2.2.0(vite@6.3.5(@types/node@20.19.1)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.4)(yaml@2.8.0))':
     dependencies:
       '@poppinss/cliui': 6.4.3
       '@poppinss/validator-lite': 2.1.0
