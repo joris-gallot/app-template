@@ -43,7 +43,7 @@ catalogs:
     vite: ^6.3.5
   vue:
     '@vitejs/plugin-vue': ^5.2.4
-    '@vueuse/core': ^13.3.0
+    '@vueuse/core': ^13.7.0
     lucide-vue-next: ^0.517.0
     reka-ui: ^2.3.1
     vee-validate: ^4.15.1
