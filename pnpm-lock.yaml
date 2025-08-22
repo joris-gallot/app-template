@@ -36,8 +36,8 @@ catalogs:
       specifier: ^20.11.17
       version: 20.19.1
     dotenv:
-      specifier: ^16.5.0
-      version: 16.5.0
+      specifier: ^16.6.1
+      version: 16.6.1
     tsx:
       specifier: ^4.20.4
       version: 4.20.4
@@ -168,7 +168,7 @@ importers:
         version: 7.1.0
       dotenv:
         specifier: catalog:dev
-        version: 16.5.0
+        version: 16.6.1
       drizzle-orm:
         specifier: catalog:db
         version: 0.44.4(@types/pg@8.15.5)(pg@8.16.3)
@@ -2977,6 +2977,10 @@ packages:
 
   dotenv@16.5.0:
     resolution: {integrity: sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==}
+    engines: {node: '>=12'}
+
+  dotenv@16.6.1:
+    resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
   dotenv@17.2.1:
@@ -8682,6 +8686,8 @@ snapshots:
       type-fest: 4.41.0
 
   dotenv@16.5.0: {}
+
+  dotenv@16.6.1: {}
 
   dotenv@17.2.1: {}
 
