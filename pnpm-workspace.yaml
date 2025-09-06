@@ -27,7 +27,7 @@ catalogs:
     eslint: ^9.34.0
   log:
     pino: ^9.7.0
-    pino-pretty: ^13.0.0
+    pino-pretty: ^13.1.1
   tailwind:
     '@tailwindcss/vite': ^4.1.12
     tailwind-merge: ^3.3.1
