@@ -49,8 +49,8 @@ catalogs:
       version: 0.5.2
   hono:
     '@hono/node-server':
-      specifier: ^1.19.3
-      version: 1.19.3
+      specifier: ^1.19.4
+      version: 1.19.4
     '@hono/trpc-server':
       specifier: ^0.4.0
       version: 0.4.0
@@ -156,7 +156,7 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: catalog:hono
-        version: 1.19.3(hono@4.9.8)
+        version: 1.19.4(hono@4.9.8)
       '@hono/trpc-server':
         specifier: catalog:hono
         version: 0.4.0(@trpc/server@11.4.4(typescript@5.9.2))(hono@4.9.8)
@@ -1054,8 +1054,8 @@ packages:
   '@floating-ui/vue@1.1.6':
     resolution: {integrity: sha512-XFlUzGHGv12zbgHNk5FN2mUB7ROul3oG2ENdTpWdE+qMFxyNxWSRmsoyhiEnpmabNm6WnUvR1OvJfUfN4ojC1A==}
 
-  '@hono/node-server@1.19.3':
-    resolution: {integrity: sha512-Fjyxfux0rMPXMSob79OmddfpK5ArJa2xLkLCV+zamHkbeXQtSNKOi0keiBKyHZ/hCRKjigjmKGp4AJnDFq8PUw==}
+  '@hono/node-server@1.19.4':
+    resolution: {integrity: sha512-AWKQZ/YkHUBSHeL/5Ld8FWgUs6wFf4TxGYxqp9wLZxRdFuHBpXmgOq+CuDoL4vllkZLzovCf5HBJnypiy3EtHA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
       hono: ^4
@@ -6579,7 +6579,7 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@hono/node-server@1.19.3(hono@4.9.8)':
+  '@hono/node-server@1.19.4(hono@4.9.8)':
     dependencies:
       hono: 4.9.8
 
