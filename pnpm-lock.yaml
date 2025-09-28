@@ -55,8 +55,8 @@ catalogs:
       specifier: ^0.4.0
       version: 0.4.0
     hono:
-      specifier: ^4.9.8
-      version: 4.9.8
+      specifier: ^4.9.9
+      version: 4.9.9
   lint:
     '@antfu/eslint-config':
       specifier: ^4.14.1
@@ -156,10 +156,10 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: catalog:hono
-        version: 1.19.4(hono@4.9.8)
+        version: 1.19.4(hono@4.9.9)
       '@hono/trpc-server':
         specifier: catalog:hono
-        version: 0.4.0(@trpc/server@11.6.0(typescript@5.9.2))(hono@4.9.8)
+        version: 0.4.0(@trpc/server@11.6.0(typescript@5.9.2))(hono@4.9.9)
       '@trpc/server':
         specifier: catalog:trpc
         version: 11.6.0(typescript@5.9.2)
@@ -174,7 +174,7 @@ importers:
         version: 0.44.5(@types/pg@8.15.5)(pg@8.16.3)
       hono:
         specifier: catalog:hono
-        version: 4.9.8
+        version: 4.9.9
       pg:
         specifier: catalog:db
         version: 8.16.3
@@ -3602,8 +3602,8 @@ packages:
   help-me@5.0.0:
     resolution: {integrity: sha512-7xgomUX6ADmcYzFik0HzAxh/73YlKR9bmFzf51CZwR+b6YtzU2m0u49hQCqV6SvlqIqsaxovfwdvbnsw3b/zpg==}
 
-  hono@4.9.8:
-    resolution: {integrity: sha512-JW8Bb4RFWD9iOKxg5PbUarBYGM99IcxFl2FPBo2gSJO11jjUDqlP1Bmfyqt8Z/dGhIQ63PMA9LdcLefXyIasyg==}
+  hono@4.9.9:
+    resolution: {integrity: sha512-Hxw4wT6zjJGZJdkJzAx9PyBdf7ZpxaTSA0NfxqjLghwMrLBX8p33hJBzoETRakF3UJu6OdNQBZAlNSkGqKFukw==}
     engines: {node: '>=16.9.0'}
 
   hookable@5.5.3:
@@ -6597,14 +6597,14 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@hono/node-server@1.19.4(hono@4.9.8)':
+  '@hono/node-server@1.19.4(hono@4.9.9)':
     dependencies:
-      hono: 4.9.8
+      hono: 4.9.9
 
-  '@hono/trpc-server@0.4.0(@trpc/server@11.6.0(typescript@5.9.2))(hono@4.9.8)':
+  '@hono/trpc-server@0.4.0(@trpc/server@11.6.0(typescript@5.9.2))(hono@4.9.9)':
     dependencies:
       '@trpc/server': 11.6.0(typescript@5.9.2)
-      hono: 4.9.8
+      hono: 4.9.9
 
   '@humanfs/core@0.19.1': {}
 
@@ -9339,7 +9339,7 @@ snapshots:
 
   help-me@5.0.0: {}
 
-  hono@4.9.8: {}
+  hono@4.9.9: {}
 
   hookable@5.5.3: {}
 
