@@ -26,7 +26,7 @@ catalogs:
     '@antfu/eslint-config': ^4.14.1
     eslint: ^9.36.0
   log:
-    pino: ^9.11.0
+    pino: ^9.12.0
     pino-pretty: ^13.1.1
   tailwind:
     '@tailwindcss/vite': ^4.1.13
