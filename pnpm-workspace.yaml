@@ -16,7 +16,7 @@ catalogs:
     '@types/node': ^20.11.17
     dotenv: ^16.6.1
     tsx: ^4.20.6
-    typescript: ^5.9.2
+    typescript: ^5.9.3
     typestep: ^0.5.2
   hono:
     '@hono/node-server': ^1.19.5
