@@ -21,7 +21,7 @@ catalogs:
   hono:
     '@hono/node-server': ^1.19.5
     '@hono/trpc-server': ^0.4.0
-    hono: ^4.9.10
+    hono: ^4.9.12
   lint:
     '@antfu/eslint-config': ^4.14.1
     eslint: ^9.37.0
