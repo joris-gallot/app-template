@@ -12,7 +12,7 @@ catalogs:
     drizzle-orm: ^0.44.6
     pg: ^8.16.3
   dev:
-    '@antfu/ni': ^25.0.0
+    '@antfu/ni': ^26.2.0
     '@types/node': ^20.11.17
     dotenv: ^16.6.1
     tsx: ^4.20.6
