@@ -55,8 +55,8 @@ catalogs:
       specifier: ^0.4.0
       version: 0.4.0
     hono:
-      specifier: ^4.10.1
-      version: 4.10.1
+      specifier: ^4.10.2
+      version: 4.10.2
   lint:
     '@antfu/eslint-config':
       specifier: ^4.14.1
@@ -156,10 +156,10 @@ importers:
     dependencies:
       '@hono/node-server':
         specifier: catalog:hono
-        version: 1.19.5(hono@4.10.1)
+        version: 1.19.5(hono@4.10.2)
       '@hono/trpc-server':
         specifier: catalog:hono
-        version: 0.4.0(@trpc/server@11.6.0(typescript@5.9.3))(hono@4.10.1)
+        version: 0.4.0(@trpc/server@11.6.0(typescript@5.9.3))(hono@4.10.2)
       '@trpc/server':
         specifier: catalog:trpc
         version: 11.6.0(typescript@5.9.3)
@@ -174,7 +174,7 @@ importers:
         version: 0.44.6(@types/pg@8.15.5)(pg@8.16.3)
       hono:
         specifier: catalog:hono
-        version: 4.10.1
+        version: 4.10.2
       pg:
         specifier: catalog:db
         version: 8.16.3
@@ -3572,8 +3572,8 @@ packages:
   help-me@5.0.0:
     resolution: {integrity: sha512-7xgomUX6ADmcYzFik0HzAxh/73YlKR9bmFzf51CZwR+b6YtzU2m0u49hQCqV6SvlqIqsaxovfwdvbnsw3b/zpg==}
 
-  hono@4.10.1:
-    resolution: {integrity: sha512-rpGNOfacO4WEPClfkEt1yfl8cbu10uB1lNpiI33AKoiAHwOS8lV748JiLx4b5ozO/u4qLjIvfpFsPXdY5Qjkmg==}
+  hono@4.10.2:
+    resolution: {integrity: sha512-p6fyzl+mQo6uhESLxbF5WlBOAJMDh36PljwlKtP5V1v09NxlqGru3ShK+4wKhSuhuYf8qxMmrivHOa/M7q0sMg==}
     engines: {node: '>=16.9.0'}
 
   hookable@5.5.3:
@@ -6604,14 +6604,14 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@hono/node-server@1.19.5(hono@4.10.1)':
+  '@hono/node-server@1.19.5(hono@4.10.2)':
     dependencies:
-      hono: 4.10.1
+      hono: 4.10.2
 
-  '@hono/trpc-server@0.4.0(@trpc/server@11.6.0(typescript@5.9.3))(hono@4.10.1)':
+  '@hono/trpc-server@0.4.0(@trpc/server@11.6.0(typescript@5.9.3))(hono@4.10.2)':
     dependencies:
       '@trpc/server': 11.6.0(typescript@5.9.3)
-      hono: 4.10.1
+      hono: 4.10.2
 
   '@humanfs/core@0.19.1': {}
 
@@ -9525,7 +9525,7 @@ snapshots:
 
   help-me@5.0.0: {}
 
-  hono@4.10.1: {}
+  hono@4.10.2: {}
 
   hookable@5.5.3: {}
 
