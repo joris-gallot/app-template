@@ -13,7 +13,7 @@ catalogs:
     pg: ^8.16.3
   dev:
     '@antfu/ni': ^25.0.0
-    '@types/node': ^20.11.17
+    '@types/node': ^22.18.12
     dotenv: ^16.6.1
     tsx: ^4.20.6
     typescript: ^5.9.3
