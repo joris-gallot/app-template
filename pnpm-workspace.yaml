@@ -6,7 +6,7 @@ catalogs:
     class-variance-authority: ^0.7.1
     clsx: ^2.1.1
   db:
-    '@types/pg': ^8.15.5
+    '@types/pg': ^8.15.6
     bcrypt-ts: ^7.1.0
     drizzle-kit: ^0.31.5
     drizzle-orm: ^0.44.7
