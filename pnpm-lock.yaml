@@ -90,11 +90,11 @@ catalogs:
       version: 1.56.1
   trpc:
     '@trpc/client':
-      specifier: ^11.6.0
-      version: 11.6.0
+      specifier: ^11.7.1
+      version: 11.7.1
     '@trpc/server':
-      specifier: ^11.6.0
-      version: 11.6.0
+      specifier: ^11.7.1
+      version: 11.7.1
   vite:
     '@julr/vite-plugin-validate-env':
       specifier: ^2.2.0
@@ -159,10 +159,10 @@ importers:
         version: 1.19.5(hono@4.10.4)
       '@hono/trpc-server':
         specifier: catalog:hono
-        version: 0.4.0(@trpc/server@11.6.0(typescript@5.9.3))(hono@4.10.4)
+        version: 0.4.0(@trpc/server@11.7.1(typescript@5.9.3))(hono@4.10.4)
       '@trpc/server':
         specifier: catalog:trpc
-        version: 11.6.0(typescript@5.9.3)
+        version: 11.7.1(typescript@5.9.3)
       bcrypt-ts:
         specifier: catalog:db
         version: 7.1.0
@@ -214,7 +214,7 @@ importers:
     dependencies:
       '@trpc/client':
         specifier: catalog:trpc
-        version: 11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3)
+        version: 11.7.1(@trpc/server@11.7.1(typescript@5.9.3))(typescript@5.9.3)
       '@vee-validate/zod':
         specifier: catalog:zod
         version: 4.15.1(vue@3.5.22(typescript@5.9.3))(zod@3.25.76)
@@ -1946,14 +1946,14 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
-  '@trpc/client@11.6.0':
-    resolution: {integrity: sha512-DyWbYk2hd50BaVrXWVkaUnaSwgAF5g/lfBkXtkF1Aqlk6BtSzGUo3owPkgqQO2I5LwWy1+ra9TsSfBBvIZpTwg==}
+  '@trpc/client@11.7.1':
+    resolution: {integrity: sha512-uOnAjElKI892/U6aQMcBHYs3x7mme3Cvv1F87ytBL56rBvs7+DyK7r43zgaXKf13+GtPEI6ex5xjVUfyDW8XcQ==}
     peerDependencies:
-      '@trpc/server': 11.6.0
+      '@trpc/server': 11.7.1
       typescript: '>=5.7.2'
 
-  '@trpc/server@11.6.0':
-    resolution: {integrity: sha512-skTso0AWbOZck40jwNeYv++AMZXNWLUWdyk+pB5iVaYmEKTuEeMoPrEudR12VafbEU6tZa8HK3QhBfTYYHDCdg==}
+  '@trpc/server@11.7.1':
+    resolution: {integrity: sha512-N3U8LNLIP4g9C7LJ/sLkjuPHwqlvE3bnspzC4DEFVdvx2+usbn70P80E3wj5cjOTLhmhRiwJCSXhlB+MHfGeCw==}
     peerDependencies:
       typescript: '>=5.7.2'
 
@@ -5757,11 +5757,6 @@ packages:
     peerDependencies:
       eslint: ^8.57.0 || ^9.0.0
 
-  vue-router@4.5.1:
-    resolution: {integrity: sha512-ogAF3P97NPm8fJsE4by9dwSYtDwXIY1nFY9T6DyQnGHd1E2Da94w9JIolpe42LJGIl0DwOHBi8TcRPlPGwbTtw==}
-    peerDependencies:
-      vue: ^3.2.0
-
   vue-router@4.6.3:
     resolution: {integrity: sha512-ARBedLm9YlbvQomnmq91Os7ck6efydTSpRP3nuOKCvgJOHNrhRoJDSKtee8kcL1Vf7nz6U+PMBL+hTvR3bTVQg==}
     peerDependencies:
@@ -6616,9 +6611,9 @@ snapshots:
     dependencies:
       hono: 4.10.4
 
-  '@hono/trpc-server@0.4.0(@trpc/server@11.6.0(typescript@5.9.3))(hono@4.10.4)':
+  '@hono/trpc-server@0.4.0(@trpc/server@11.7.1(typescript@5.9.3))(hono@4.10.4)':
     dependencies:
-      '@trpc/server': 11.6.0(typescript@5.9.3)
+      '@trpc/server': 11.7.1(typescript@5.9.3)
       hono: 4.10.4
 
   '@humanfs/core@0.19.1': {}
@@ -7574,12 +7569,12 @@ snapshots:
       '@tanstack/virtual-core': 3.13.10
       vue: 3.5.22(typescript@5.9.3)
 
-  '@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3)':
+  '@trpc/client@11.7.1(@trpc/server@11.7.1(typescript@5.9.3))(typescript@5.9.3)':
     dependencies:
-      '@trpc/server': 11.6.0(typescript@5.9.3)
+      '@trpc/server': 11.7.1(typescript@5.9.3)
       typescript: 5.9.3
 
-  '@trpc/server@11.6.0(typescript@5.9.3)':
+  '@trpc/server@11.7.1(typescript@5.9.3)':
     dependencies:
       typescript: 5.9.3
 
@@ -10664,13 +10659,13 @@ snapshots:
       unctx: 2.4.1
       unimport: 5.2.0
       unplugin: 2.3.6
-      unplugin-vue-router: 0.15.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
+      unplugin-vue-router: 0.15.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3))
       unstorage: 1.16.1(@netlify/blobs@9.1.2)(db0@0.3.2(drizzle-orm@0.44.7(@types/pg@8.15.6)(pg@8.16.3)))(ioredis@5.7.0)
       untyped: 2.0.0
       vue: 3.5.22(typescript@5.9.3)
       vue-bundle-renderer: 2.1.2
       vue-devtools-stub: 0.1.0
-      vue-router: 4.5.1(vue@3.5.22(typescript@5.9.3))
+      vue-router: 4.6.3(vue@3.5.22(typescript@5.9.3))
     optionalDependencies:
       '@parcel/watcher': 2.5.1
       '@types/node': 20.19.1
@@ -12078,7 +12073,7 @@ snapshots:
       picomatch: 4.0.3
     optional: true
 
-  unplugin-vue-router@0.15.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
+  unplugin-vue-router@0.15.0(@vue/compiler-sfc@3.5.22)(typescript@5.9.3)(vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)))(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       '@vue-macros/common': 3.0.0-beta.16(vue@3.5.22(typescript@5.9.3))
       '@vue/compiler-sfc': 3.5.22
@@ -12098,7 +12093,7 @@ snapshots:
       unplugin-utils: 0.2.5
       yaml: 2.8.0
     optionalDependencies:
-      vue-router: 4.5.1(vue@3.5.22(typescript@5.9.3))
+      vue-router: 4.6.3(vue@3.5.22(typescript@5.9.3))
     transitivePeerDependencies:
       - typescript
       - vue
@@ -12346,12 +12341,6 @@ snapshots:
       semver: 7.7.2
     transitivePeerDependencies:
       - supports-color
-
-  vue-router@4.5.1(vue@3.5.22(typescript@5.9.3)):
-    dependencies:
-      '@vue/devtools-api': 6.6.4
-      vue: 3.5.22(typescript@5.9.3)
-    optional: true
 
   vue-router@4.6.3(vue@3.5.22(typescript@5.9.3)):
     dependencies:
