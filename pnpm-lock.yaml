@@ -110,8 +110,8 @@ catalogs:
       specifier: ^13.9.0
       version: 13.9.0
     lucide-vue-next:
-      specifier: ^0.548.0
-      version: 0.548.0
+      specifier: ^0.552.0
+      version: 0.552.0
     reka-ui:
       specifier: ^2.6.0
       version: 2.6.0
@@ -229,7 +229,7 @@ importers:
         version: 2.1.1
       lucide-vue-next:
         specifier: catalog:vue
-        version: 0.548.0(vue@3.5.22(typescript@5.9.3))
+        version: 0.552.0(vue@3.5.22(typescript@5.9.3))
       reka-ui:
         specifier: catalog:vue
         version: 2.6.0(typescript@5.9.3)(vue@3.5.22(typescript@5.9.3))
@@ -4005,8 +4005,8 @@ packages:
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
 
-  lucide-vue-next@0.548.0:
-    resolution: {integrity: sha512-VtL3HkoPOhrhBkJdLWm6JY1kmCetsri1lvoaenem5PQagO2cjR1sNENNnuLJHzl/l0IcFg8RKJyiHt2GZtvj2A==}
+  lucide-vue-next@0.552.0:
+    resolution: {integrity: sha512-xbP3UBwNkGoCl1ezW/zsGHtyJ1rOowPmSpUG1f7V38YvZBlGiV3BxL+4mu9C9i0EjfJ6ca066FpnB3VK+HN92g==}
     peerDependencies:
       vue: '>=3.0.1'
 
@@ -9959,7 +9959,7 @@ snapshots:
       yallist: 3.1.1
     optional: true
 
-  lucide-vue-next@0.548.0(vue@3.5.22(typescript@5.9.3)):
+  lucide-vue-next@0.552.0(vue@3.5.22(typescript@5.9.3)):
     dependencies:
       vue: 3.5.22(typescript@5.9.3)
 
