@@ -8,7 +8,7 @@ catalogs:
   db:
     '@types/pg': ^8.15.6
     bcrypt-ts: ^7.1.0
-    drizzle-kit: ^0.31.6
+    drizzle-kit: ^0.31.7
     drizzle-orm: ^0.44.7
     pg: ^8.16.3
   dev:
