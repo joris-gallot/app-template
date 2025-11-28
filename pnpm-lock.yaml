@@ -90,11 +90,11 @@ catalogs:
       version: 1.56.1
   trpc:
     '@trpc/client':
-      specifier: ^11.7.1
-      version: 11.7.1
+      specifier: ^11.7.2
+      version: 11.7.2
     '@trpc/server':
-      specifier: ^11.7.1
-      version: 11.7.1
+      specifier: ^11.7.2
+      version: 11.7.2
   vite:
     '@julr/vite-plugin-validate-env':
       specifier: ^2.2.0
@@ -159,10 +159,10 @@ importers:
         version: 1.19.6(hono@4.10.7)
       '@hono/trpc-server':
         specifier: catalog:hono
-        version: 0.4.0(@trpc/server@11.7.1(typescript@5.9.3))(hono@4.10.7)
+        version: 0.4.0(@trpc/server@11.7.2(typescript@5.9.3))(hono@4.10.7)
       '@trpc/server':
         specifier: catalog:trpc
-        version: 11.7.1(typescript@5.9.3)
+        version: 11.7.2(typescript@5.9.3)
       bcrypt-ts:
         specifier: catalog:db
         version: 7.1.0
@@ -214,7 +214,7 @@ importers:
     dependencies:
       '@trpc/client':
         specifier: catalog:trpc
-        version: 11.7.1(@trpc/server@11.7.1(typescript@5.9.3))(typescript@5.9.3)
+        version: 11.7.2(@trpc/server@11.7.2(typescript@5.9.3))(typescript@5.9.3)
       '@vee-validate/zod':
         specifier: catalog:zod
         version: 4.15.1(vue@3.5.25(typescript@5.9.3))(zod@3.25.76)
@@ -1944,14 +1944,14 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
-  '@trpc/client@11.7.1':
-    resolution: {integrity: sha512-uOnAjElKI892/U6aQMcBHYs3x7mme3Cvv1F87ytBL56rBvs7+DyK7r43zgaXKf13+GtPEI6ex5xjVUfyDW8XcQ==}
+  '@trpc/client@11.7.2':
+    resolution: {integrity: sha512-OQxqUMfpDvjcszo9dbnqWQXnW2L5IbrKSz2H7l8s+mVM3EvYw7ztQ/gjFIN3iy0NcamiQfd4eE6qjcb9Lm+63A==}
     peerDependencies:
-      '@trpc/server': 11.7.1
+      '@trpc/server': 11.7.2
       typescript: '>=5.7.2'
 
-  '@trpc/server@11.7.1':
-    resolution: {integrity: sha512-N3U8LNLIP4g9C7LJ/sLkjuPHwqlvE3bnspzC4DEFVdvx2+usbn70P80E3wj5cjOTLhmhRiwJCSXhlB+MHfGeCw==}
+  '@trpc/server@11.7.2':
+    resolution: {integrity: sha512-AgB26PXY69sckherIhCacKLY49rxE2XP5h38vr/KMZTbLCL1p8IuIoKPjALTcugC2kbyQ7Lbqo2JDVfRSmPmfQ==}
     peerDependencies:
       typescript: '>=5.7.2'
 
@@ -6606,9 +6606,9 @@ snapshots:
     dependencies:
       hono: 4.10.7
 
-  '@hono/trpc-server@0.4.0(@trpc/server@11.7.1(typescript@5.9.3))(hono@4.10.7)':
+  '@hono/trpc-server@0.4.0(@trpc/server@11.7.2(typescript@5.9.3))(hono@4.10.7)':
     dependencies:
-      '@trpc/server': 11.7.1(typescript@5.9.3)
+      '@trpc/server': 11.7.2(typescript@5.9.3)
       hono: 4.10.7
 
   '@humanfs/core@0.19.1': {}
@@ -7564,12 +7564,12 @@ snapshots:
       '@tanstack/virtual-core': 3.13.10
       vue: 3.5.25(typescript@5.9.3)
 
-  '@trpc/client@11.7.1(@trpc/server@11.7.1(typescript@5.9.3))(typescript@5.9.3)':
+  '@trpc/client@11.7.2(@trpc/server@11.7.2(typescript@5.9.3))(typescript@5.9.3)':
     dependencies:
-      '@trpc/server': 11.7.1(typescript@5.9.3)
+      '@trpc/server': 11.7.2(typescript@5.9.3)
       typescript: 5.9.3
 
-  '@trpc/server@11.7.1(typescript@5.9.3)':
+  '@trpc/server@11.7.2(typescript@5.9.3)':
     dependencies:
       typescript: 5.9.3
 
