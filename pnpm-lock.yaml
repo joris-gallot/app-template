@@ -76,8 +76,8 @@ catalogs:
       specifier: ^4.1.17
       version: 4.1.17
     tailwind-merge:
-      specifier: ^3.3.1
-      version: 3.3.1
+      specifier: ^3.4.0
+      version: 3.4.0
     tailwindcss:
       specifier: ^4.1.17
       version: 4.1.17
@@ -235,7 +235,7 @@ importers:
         version: 2.6.1(typescript@5.9.3)(vue@3.5.25(typescript@5.9.3))
       tailwind-merge:
         specifier: catalog:tailwind
-        version: 3.3.1
+        version: 3.4.0
       tw-animate-css:
         specifier: catalog:tailwind
         version: 1.4.0
@@ -5290,8 +5290,8 @@ packages:
     resolution: {integrity: sha512-ulAk51I9UVUyJgxlv9M6lFot2WP3e7t8Kz9+IS6D4rVba1tR9kON+Ey69f+1R4Q8cd45Lod6a4IcJIxnzGc/zA==}
     engines: {node: '>=18'}
 
-  tailwind-merge@3.3.1:
-    resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
+  tailwind-merge@3.4.0:
+    resolution: {integrity: sha512-uSaO4gnW+b3Y2aWoWfFpX62vn2sR3skfhbjsEnaBI81WD1wBLlHZe5sWf0AqjksNdYTbGBEd0UasQMT3SNV15g==}
 
   tailwindcss@4.1.17:
     resolution: {integrity: sha512-j9Ee2YjuQqYT9bbRTfTZht9W/ytp5H+jJpZKiYdP/bpnXARAuELt9ofP0lPnmHjbga7SNQIxdTAXCmtKVYjN+Q==}
@@ -11860,7 +11860,7 @@ snapshots:
   system-architecture@0.1.0:
     optional: true
 
-  tailwind-merge@3.3.1: {}
+  tailwind-merge@3.4.0: {}
 
   tailwindcss@4.1.17: {}
 
