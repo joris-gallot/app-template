@@ -22,7 +22,7 @@ catalogs:
     '@types/node': ^20.11.17
     dotenv: ^17.2.3
     tsx: ^4.21.0
-    typescript: ^5.8.3
+    typescript: ^5.9.3
     typestep: ^0.5.2
   hono:
     '@hono/node-server': ^1.19.6
