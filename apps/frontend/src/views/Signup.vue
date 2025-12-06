@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { signupSchema } from '@common/schemas/auth'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
@@ -22,7 +21,9 @@ import { useAuthStore } from '@/stores/auth'
 const signUpError = ref<string>()
 const { setToken } = useAuthStore()
 
-const signupSchemaWithConfirmPwd = signupSchema.extend({
+const signupSchema = z.object({
+  email: z.email({ error: 'Email must be a valid email address' }),
+  password: z.string({ error: 'Required' }).min(8, { error: 'Password must be at least 8 characters long' }),
   confirmPassword: z.string(),
 }).refine(data => data.password === data.confirmPassword, {
   message: 'Passwords don\'t match',
@@ -31,7 +32,7 @@ const signupSchemaWithConfirmPwd = signupSchema.extend({
 
 const { handleSubmit } = useForm({
   name: 'SignupForm',
-  validationSchema: toTypedSchema(signupSchemaWithConfirmPwd),
+  validationSchema: toTypedSchema(signupSchema),
 })
 
 const onSubmit = handleSubmit(async (values) => {
@@ -100,7 +101,7 @@ const onSubmit = handleSubmit(async (values) => {
               <FormLabel>Email</FormLabel>
 
               <FormControl>
-                <Input data-testid="email-input" required autocomplete="email" type="email" placeholder="m@example.com" v-bind="componentField" />
+                <Input data-testid="email-input" required autocomplete="email" type="email" placeholder="email@example.com" v-bind="componentField" />
               </FormControl>
               <FormMessage />
             </FormItem>

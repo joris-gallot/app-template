@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { signinSchema } from '@common/schemas/auth'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
+import z from 'zod/v4'
 import Error from '@/components/Error.vue'
 import { Button } from '@/components/ui/button'
 import {
@@ -14,10 +14,15 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
 
+import { Input } from '@/components/ui/input'
 import { authClient } from '@/lib/auth-client'
 import { useAuthStore } from '@/stores/auth'
+
+const signinSchema = z.object({
+  email: z.email({ error: 'Email must be a valid email address' }),
+  password: z.string({ error: 'Required' }),
+})
 
 const signInError = ref<string>()
 const { setToken } = useAuthStore()
@@ -100,7 +105,7 @@ async function googleSignIn() {
               <FormLabel>Email</FormLabel>
 
               <FormControl>
-                <Input data-testid="email-input" required autocomplete="email" type="email" placeholder="m@example.com" v-bind="componentField" />
+                <Input data-testid="email-input" required autocomplete="email" type="email" placeholder="email@example.com" v-bind="componentField" />
               </FormControl>
               <FormMessage />
             </FormItem>
