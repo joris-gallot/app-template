@@ -14,6 +14,7 @@
     "@trpc/client": "catalog:trpc",
     "@vee-validate/zod": "catalog:zod",
     "@vueuse/core": "catalog:vue",
+    "better-auth": "catalog:auth",
     "class-variance-authority": "catalog:css",
     "clsx": "catalog:css",
     "lucide-vue-next": "catalog:vue",

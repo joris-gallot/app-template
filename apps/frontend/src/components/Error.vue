@@ -3,13 +3,22 @@ import type { TRPCError } from '@/types/trpc'
 import { CircleAlert } from 'lucide-vue-next'
 import { computed } from 'vue'
 
-const { error } = defineProps<{
-  error: TRPCError
+const { error, trpcError } = defineProps<{
+  trpcError?: TRPCError
+  error?: string
 }>()
 
 const errors = computed(() => {
+  if (error) {
+    return [{ message: error, code: 'UNKNOWN', path: [] }]
+  }
+
+  if (!trpcError) {
+    return []
+  }
+
   try {
-    return JSON.parse(error.message) as Array<{ message: string, code: string, path: string[] }>
+    return JSON.parse(trpcError.message) as Array<{ message: string, code: string, path: string[] }>
   }
   catch (e) {
     console.error('Failed to parse error message:', e)

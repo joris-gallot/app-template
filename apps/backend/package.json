@@ -14,6 +14,7 @@
     "@hono/trpc-server": "catalog:hono",
     "@trpc/server": "catalog:trpc",
     "bcrypt-ts": "catalog:db",
+    "better-auth": "catalog:auth",
     "dotenv": "catalog:dev",
     "drizzle-orm": "catalog:db",
     "hono": "catalog:hono",

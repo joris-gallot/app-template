@@ -8,6 +8,8 @@ packages:
   - 'apps/*'
 
 catalogs:
+  auth:
+    better-auth: ^1.4.5
   css:
     class-variance-authority: ^0.7.1
     clsx: ^2.1.1

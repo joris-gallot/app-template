@@ -3,13 +3,14 @@ import z from 'zod/v4'
 import 'dotenv/config'
 
 const envSchema = z.object({
+  NODE_ENV: z.enum(['development', 'production']),
   PG_USER: z.string(),
   PG_PASSWORD: z.string(),
   PG_HOST: z.string(),
-  PG_PORT: z.number(),
+  PG_PORT: z.coerce.number(),
   PG_DATABASE: z.string(),
-  JWT_SECRET: z.string(),
-  GOOGLE_SECRET: z.string(),
+  AUTH_SECRET: z.string(),
+  GOOGLE_CLIENT_SECRET: z.string(),
   GOOGLE_CLIENT_ID: z.string(),
 })
 

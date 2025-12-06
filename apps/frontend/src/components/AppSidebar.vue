@@ -10,8 +10,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
+import { authClient } from '@/lib/auth-client'
 import { useAuthStore } from '@/stores/auth'
-import { client } from '@/trpc'
 import Button from './ui/button/Button.vue'
 
 const { setToken } = useAuthStore()
@@ -30,7 +30,7 @@ const routes = [
 ]
 
 async function signout() {
-  await client.auth.signout.mutate()
+  await authClient.signOut()
   setToken(undefined)
 }
 </script>

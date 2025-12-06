@@ -2,7 +2,7 @@ import type { Knex } from 'knex'
 import process from 'node:process'
 import knex from 'knex'
 import { pino, stdSerializers } from 'pino'
-import { env } from '../src/env.js'
+import { env } from '../src/lib/env.js'
 
 const logger = pino({
   level: 'info',

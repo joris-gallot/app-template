@@ -24,7 +24,6 @@ const router = createRouter({
       name: 'Signin',
       component: () => import('../views/Signin.vue'),
       meta: {
-        noAuth: true,
         layout: 'auth',
       },
     },
@@ -33,7 +32,6 @@ const router = createRouter({
       name: 'Signup',
       component: () => import('../views/Signup.vue'),
       meta: {
-        noAuth: true,
         layout: 'auth',
       },
     },

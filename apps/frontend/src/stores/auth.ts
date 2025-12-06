@@ -35,12 +35,16 @@ export const useAuthStore = createGlobalState(
       if (oldMe === undefined && newMe !== undefined && authRoutes.includes(route.name as string)) {
         router.push({ name: 'Home' })
       }
-      else if (newMe === undefined) {
+      else if (newMe === undefined && !authRoutes.includes(route.name as string)) {
         router.push({ name: 'Signin' })
       }
     })
 
     const isAuthenticated = computed(() => Boolean(me.value))
+
+    if (!isAuthenticated.value && !authRoutes.includes(route.name as string)) {
+      router.push({ name: 'Signin' })
+    }
 
     return {
       me,

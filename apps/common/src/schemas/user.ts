@@ -1,7 +1,7 @@
 import { z } from 'zod/v4'
 
 export const updateUserSchema = z.object({
-  username: z
+  name: z
     .string({
       error: 'Username is required.',
     })

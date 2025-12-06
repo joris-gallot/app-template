@@ -18,7 +18,7 @@ const { handleSubmit, resetForm, meta } = useForm({
   validationSchema: toTypedSchema(updateUserSchema),
   initialValues: {
     email: me.value?.email,
-    username: me.value?.username,
+    name: me.value?.name,
   },
 })
 
@@ -34,7 +34,7 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <form class="space-y-8" @submit="onSubmit">
-    <FormField v-slot="{ componentField }" name="username">
+    <FormField v-slot="{ componentField }" name="name">
       <FormItem>
         <FormLabel>Username</FormLabel>
         <FormControl>

@@ -8,7 +8,6 @@
       "@/*": ["./src/*"],
       "@common/*": ["../common/src/*"]
     },
-    "types": ["vite/client"],
     "outDir": "./dist"
   },
   "include": ["**/*.ts", "src/**/*.vue"],

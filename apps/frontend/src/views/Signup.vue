@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import type { TRPCError } from '@/types/trpc'
 import { signupSchema } from '@common/schemas/auth'
-import { isTRPCClientError } from '@trpc/client'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
 import z from 'zod/v4'
-import TrpcError from '@/components/TrpcError.vue'
+import Error from '@/components/Error.vue'
 import { Button } from '@/components/ui/button'
 import {
   Card,
@@ -18,10 +16,10 @@ import {
 } from '@/components/ui/card'
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { authClient } from '@/lib/auth-client'
 import { useAuthStore } from '@/stores/auth'
-import { client } from '@/trpc'
 
-const trpcError = ref<TRPCError>()
+const signUpError = ref<string>()
 const { setToken } = useAuthStore()
 
 const signupSchemaWithConfirmPwd = signupSchema.extend({
@@ -37,27 +35,23 @@ const { handleSubmit } = useForm({
 })
 
 const onSubmit = handleSubmit(async (values) => {
-  trpcError.value = undefined
+  signUpError.value = undefined
 
-  const res = await client.auth.signup.mutate({
+  const { data, error } = await authClient.signUp.email({
+    name: values.email,
     email: values.email,
     password: values.password,
-  }).catch((error) => {
-    if (isTRPCClientError(error)) {
-      trpcError.value = error
-    }
-    else {
-      console.error('Unexpected error:', error)
-    }
-
-    return null
   })
 
-  if (!res) {
+  if (error?.message) {
+    signUpError.value = error.message
+
     return
   }
 
-  setToken(res.token)
+  if (data?.token) {
+    setToken(data?.token)
+  }
 })
 </script>
 
@@ -134,7 +128,7 @@ const onSubmit = handleSubmit(async (values) => {
             </FormItem>
           </FormField>
 
-          <TrpcError v-if="trpcError" :error="trpcError" />
+          <Error v-if="signUpError" :error="signUpError" />
         </form>
       </CardContent>
       <CardFooter>
