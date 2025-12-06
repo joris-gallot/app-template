@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { toTypedSchema } from '@vee-validate/zod'
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
-import z from 'zod/v4'
+import z from 'zod'
+
 import Error from '@/components/Error.vue'
 import { Button } from '@/components/ui/button'
 import {
@@ -29,7 +29,7 @@ const { setToken } = useAuthStore()
 
 const { handleSubmit } = useForm({
   name: 'SignupForm',
-  validationSchema: toTypedSchema(signinSchema),
+  validationSchema: signinSchema,
 })
 
 const onSubmit = handleSubmit(async (values) => {

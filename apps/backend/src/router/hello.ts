@@ -1,4 +1,4 @@
-import z from 'zod/v4'
+import z from 'zod'
 import { authProcedure, router } from '../trpc'
 
 export const helloRouter = router(

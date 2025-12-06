@@ -1,4 +1,4 @@
-import type { ZodDefault, ZodString } from 'zod/v4'
+import type { ZodDefault, ZodString } from 'zod'
 
 import { fileURLToPath, URL } from 'node:url'
 import { ValidateEnv } from '@julr/vite-plugin-validate-env'
@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
-import { z } from 'zod/v4'
+import { z } from 'zod'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {

@@ -120,8 +120,8 @@ catalogs:
       specifier: ^2.6.1
       version: 2.6.1
     vee-validate:
-      specifier: ^4.15.1
-      version: 4.15.1
+      specifier: ^5.0.0-beta.0
+      version: 5.0.0-beta.0
     vue:
       specifier: ^3.5.25
       version: 3.5.25
@@ -135,12 +135,9 @@ catalogs:
       specifier: ^2.2.12
       version: 2.2.12
   zod:
-    '@vee-validate/zod':
-      specifier: ^4.15.1
-      version: 4.15.1
     zod:
-      specifier: ^3.25.76
-      version: 3.25.76
+      specifier: ^4.1.13
+      version: 4.1.13
 
 importers:
 
@@ -190,7 +187,7 @@ importers:
         version: 10.1.0
       zod:
         specifier: catalog:zod
-        version: 3.25.76
+        version: 4.1.13
     devDependencies:
       '@types/node':
         specifier: catalog:dev
@@ -215,16 +212,13 @@ importers:
     dependencies:
       zod:
         specifier: catalog:zod
-        version: 3.25.76
+        version: 4.1.13
 
   apps/frontend:
     dependencies:
       '@trpc/client':
         specifier: catalog:trpc
         version: 11.7.2(@trpc/server@11.7.2(typescript@5.9.3))(typescript@5.9.3)
-      '@vee-validate/zod':
-        specifier: catalog:zod
-        version: 4.15.1(vue@3.5.25(typescript@5.9.3))(zod@3.25.76)
       '@vueuse/core':
         specifier: catalog:vue
         version: 14.1.0(vue@3.5.25(typescript@5.9.3))
@@ -251,7 +245,7 @@ importers:
         version: 1.4.0
       vee-validate:
         specifier: catalog:vue
-        version: 4.15.1(vue@3.5.25(typescript@5.9.3))
+        version: 5.0.0-beta.0(vue@3.5.25(typescript@5.9.3))
       vue:
         specifier: catalog:vue
         version: 3.5.25(typescript@5.9.3)
@@ -263,7 +257,7 @@ importers:
         version: 2.0.9(@nuxt/kit@4.0.3(magicast@0.3.5))(@nuxt/schema@4.0.3)(nuxt@4.0.3(@netlify/blobs@9.1.2)(@parcel/watcher@2.5.1)(@types/node@20.19.1)(@vue/compiler-sfc@3.5.25)(db0@0.3.2(drizzle-orm@0.44.7(@types/pg@8.15.6)(knex@3.1.0(pg@8.16.3))(kysely@0.28.8)(pg@8.16.3)))(drizzle-orm@0.44.7(@types/pg@8.15.6)(knex@3.1.0(pg@8.16.3))(kysely@0.28.8)(pg@8.16.3))(eslint@9.39.1(jiti@2.6.1))(ioredis@5.7.0)(lightningcss@1.30.2)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.46.3)(terser@5.43.1)(tsx@4.21.0)(typescript@5.9.3)(vite@7.2.6(@types/node@20.19.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.43.1)(tsx@4.21.0)(yaml@2.8.2))(vue-tsc@2.2.12(typescript@5.9.3))(yaml@2.8.2))
       zod:
         specifier: catalog:zod
-        version: 3.25.76
+        version: 4.1.13
     devDependencies:
       '@julr/vite-plugin-validate-env':
         specifier: catalog:vite
@@ -2006,6 +2000,9 @@ packages:
   '@standard-schema/spec@1.0.0':
     resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
 
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
+
   '@stylistic/eslint-plugin@5.6.1':
     resolution: {integrity: sha512-JCs+MqoXfXrRPGbGmho/zGS/jMcn3ieKl/A8YImqib76C8kjgZwq5uUFzc30lJkMvcchuRn6/v8IApLxli3Jyw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2233,11 +2230,6 @@ packages:
     resolution: {integrity: sha512-Ym9f+Kd2Afqek2FtUHvYvK+j2uZ2vbZ6Rr9NCnNGGBMdmafAuiZpT117YGyh0ARcueL6Znia0U8ySqPsnHOZIg==}
     peerDependencies:
       vue: '>=3.5.18'
-
-  '@vee-validate/zod@4.15.1':
-    resolution: {integrity: sha512-329Z4TDBE5Vx0FdbA8S4eR9iGCFFUNGbxjpQ20ff5b5wGueScjocUIx9JHPa79LTG06RnlUR4XogQsjN4tecKA==}
-    peerDependencies:
-      zod: ^3.24.0
 
   '@vercel/nft@0.29.4':
     resolution: {integrity: sha512-6lLqMNX3TuycBPABycx7A9F1bHQR7kiQln6abjFbPrf5C/05qHM9M5E4PeTE59c7z8g6vHnx1Ioihb2AQl7BTA==}
@@ -5900,8 +5892,8 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  vee-validate@4.15.1:
-    resolution: {integrity: sha512-DkFsiTwEKau8VIxyZBGdO6tOudD+QoUBPuHj3e6QFqmbfCRj1ArmYWue9lEp6jLSWBIw4XPlDLjFIZNLdRAMSg==}
+  vee-validate@5.0.0-beta.0:
+    resolution: {integrity: sha512-uGIRnODDMM0A8Weu8AJcZFFJceUpgbSX6G4UYZgWhBc90VcXDK+v7yO16G+sj+6vU1eML11M2BH4HxwoPE62rw==}
     peerDependencies:
       vue: ^3.4.26
 
@@ -6466,7 +6458,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.28.5
 
-  '@better-auth/core@1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@3.25.76))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0)':
+  '@better-auth/core@1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@4.1.13))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0)':
     dependencies:
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
@@ -6477,9 +6469,9 @@ snapshots:
       nanostores: 1.1.0
       zod: 4.1.13
 
-  '@better-auth/telemetry@1.4.5(@better-auth/core@1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@3.25.76))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0))':
+  '@better-auth/telemetry@1.4.5(@better-auth/core@1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@4.1.13))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0))':
     dependencies:
-      '@better-auth/core': 1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@3.25.76))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0)
+      '@better-auth/core': 1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@4.1.13))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0)
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
 
@@ -7829,6 +7821,8 @@ snapshots:
 
   '@standard-schema/spec@1.0.0': {}
 
+  '@standard-schema/utils@0.3.0': {}
+
   '@stylistic/eslint-plugin@5.6.1(eslint@9.39.1(jiti@2.6.1))':
     dependencies:
       '@eslint-community/eslint-utils': 4.9.0(eslint@9.39.1(jiti@2.6.1))
@@ -8077,14 +8071,6 @@ snapshots:
       unhead: 2.0.14
       vue: 3.5.25(typescript@5.9.3)
     optional: true
-
-  '@vee-validate/zod@4.15.1(vue@3.5.25(typescript@5.9.3))(zod@3.25.76)':
-    dependencies:
-      type-fest: 4.41.0
-      vee-validate: 4.15.1(vue@3.5.25(typescript@5.9.3))
-      zod: 3.25.76
-    transitivePeerDependencies:
-      - vue
 
   '@vercel/nft@0.29.4(rollup@4.46.3)':
     dependencies:
@@ -8516,8 +8502,8 @@ snapshots:
 
   better-auth@1.4.5(vue@3.5.25(typescript@5.9.3)):
     dependencies:
-      '@better-auth/core': 1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@3.25.76))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0)
-      '@better-auth/telemetry': 1.4.5(@better-auth/core@1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@3.25.76))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0))
+      '@better-auth/core': 1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@4.1.13))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0)
+      '@better-auth/telemetry': 1.4.5(@better-auth/core@1.4.5(@better-auth/utils@0.3.0)(@better-fetch/fetch@1.1.18)(better-call@1.1.4(zod@4.1.13))(jose@6.1.3)(kysely@0.28.8)(nanostores@1.1.0))
       '@better-auth/utils': 0.3.0
       '@better-fetch/fetch': 1.1.18
       '@noble/ciphers': 2.0.1
@@ -12649,8 +12635,10 @@ snapshots:
       spdx-expression-parse: 3.0.1
     optional: true
 
-  vee-validate@4.15.1(vue@3.5.25(typescript@5.9.3)):
+  vee-validate@5.0.0-beta.0(vue@3.5.25(typescript@5.9.3)):
     dependencies:
+      '@standard-schema/spec': 1.0.0
+      '@standard-schema/utils': 0.3.0
       '@vue/devtools-api': 7.7.7
       type-fest: 4.41.0
       vue: 3.5.25(typescript@5.9.3)
@@ -12969,7 +12957,8 @@ snapshots:
       readable-stream: 4.7.0
     optional: true
 
-  zod@3.25.76: {}
+  zod@3.25.76:
+    optional: true
 
   zod@4.1.13: {}
 

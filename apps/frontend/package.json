@@ -7,12 +7,11 @@
     "dev": "vite",
     "preview": "vite preview",
     "build": "vite build",
-    "typecheck": "(vue-tsc --noEmit > tsc-output.log || true) && typestep run tsc-output.log",
+    "typecheck": "vue-tsc --noEmit",
     "test:e2e": "playwright test"
   },
   "dependencies": {
     "@trpc/client": "catalog:trpc",
-    "@vee-validate/zod": "catalog:zod",
     "@vueuse/core": "catalog:vue",
     "better-auth": "catalog:auth",
     "class-variance-authority": "catalog:css",

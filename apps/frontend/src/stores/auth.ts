@@ -1,7 +1,7 @@
 import { createGlobalState, useAsyncState, useLocalStorage } from '@vueuse/core'
 import { computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { client } from '@/trpc'
+import { client } from '@/lib/trpc'
 
 export const useAuthStore = createGlobalState(
   () => {

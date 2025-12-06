@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { updateUserSchema } from '@common/schemas/user'
-import { toTypedSchema } from '@vee-validate/zod'
 import { Check, TriangleAlert } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
 import { toast } from 'vue-sonner'
@@ -8,17 +7,17 @@ import { toast } from 'vue-sonner'
 import { Button } from '@/components/ui/button'
 import { FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { client } from '@/lib/trpc'
 import { useAuthStore } from '@/stores/auth'
-import { client } from '@/trpc'
 
 const { me, refetchMe } = useAuthStore()
 
 const { handleSubmit, resetForm, meta } = useForm({
   name: 'ProfileForm',
-  validationSchema: toTypedSchema(updateUserSchema),
+  validationSchema: updateUserSchema,
   initialValues: {
-    email: me.value?.email,
-    name: me.value?.name,
+    email: me.value!.email,
+    name: me.value!.name,
   },
 })
 
