@@ -28,7 +28,7 @@ catalogs:
     typestep: ^0.5.2
   hono:
     '@hono/node-server': ^1.19.6
-    '@hono/trpc-server': ^0.4.0
+    '@hono/trpc-server': ^0.4.1
     hono: ^4.10.7
   lint:
     '@antfu/eslint-config': ^6.4.2
