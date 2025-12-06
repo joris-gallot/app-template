@@ -21,7 +21,7 @@ catalogs:
     knex: ^3.1.0
     pg: ^8.16.3
   dev:
-    '@types/node': ^20.11.17
+    '@types/node': ^24.10.1
     dotenv: ^17.2.3
     tsx: ^4.21.0
     typescript: ^5.8.3
