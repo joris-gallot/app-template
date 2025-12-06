@@ -1,3 +1,4 @@
+import type { ErrorDetail } from '../error'
 import type { Context } from './context'
 import { initTRPC, TRPCError } from '@trpc/server'
 
@@ -17,7 +18,15 @@ const loggedProcedure = t.procedure.use(async (opts) => {
     logger.info(log)
   }
   else {
-    logger.error({ error: result.error.message }, log)
+    // if the error message is a stringified array from formatErrors
+    if (result.error.message.startsWith('[')) {
+      const errors = (JSON.parse(result.error.message)) as ErrorDetail[]
+      const error = errors.map(e => e.message)
+      logger.error({ error }, log)
+    }
+    else {
+      logger.error({ error: result.error.message }, log)
+    }
   }
 
   return result
