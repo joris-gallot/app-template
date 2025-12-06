@@ -1,5 +1,3 @@
-import type { ZodDefault, ZodString } from 'zod'
-
 import { fileURLToPath, URL } from 'node:url'
 import { ValidateEnv } from '@julr/vite-plugin-validate-env'
 import tailwindcss from '@tailwindcss/vite'
@@ -9,26 +7,16 @@ import { defineConfig } from 'vite'
 import { z } from 'zod'
 
 // https://vite.dev/config/
-export default defineConfig(({ mode }) => {
-  const isDev = mode === 'development'
-
-  const envSchema: {
-    VITE_BACKEND_URL: ZodDefault<ZodString> | ZodString
-  } = {
-    VITE_BACKEND_URL: z.string(),
-  }
-
-  if (isDev) {
-    envSchema.VITE_BACKEND_URL = (envSchema.VITE_BACKEND_URL as ZodString).default('http://localhost:3000')
-  }
-
+export default defineConfig(() => {
   return {
     plugins: [
       vue(),
       tailwindcss(),
       ValidateEnv({
         validator: 'standard',
-        schema: envSchema,
+        schema: {
+          VITE_BACKEND_URL: z.string(),
+        },
       }),
     ],
     server: {

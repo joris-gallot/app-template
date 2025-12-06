@@ -1,11 +1,12 @@
 import type { BackendTrpcRouter } from '@common/index'
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client'
 import { useAuthStore } from '../stores/auth'
+import { BACKEND_URL } from './constants'
 
 export const client = createTRPCProxyClient<BackendTrpcRouter>({
   links: [
     httpBatchLink({
-      url: `${import.meta.env.VITE_BACKEND_URL}/trpc`,
+      url: `${BACKEND_URL}/trpc`,
       headers() {
         let headers: { Authorization?: string } = {}
 

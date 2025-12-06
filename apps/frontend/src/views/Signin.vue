@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
-import z from 'zod'
+import { z } from 'zod'
 
 import Error from '@/components/Error.vue'
 import { Button } from '@/components/ui/button'
@@ -52,11 +52,10 @@ const onSubmit = handleSubmit(async (values) => {
 })
 
 async function googleSignIn() {
-  const data = await authClient.signIn.social({
+  await authClient.signIn.social({
     provider: 'google',
+    callbackURL: 'http://localhost:3001',
   })
-
-  console.log(data)
 }
 </script>
 

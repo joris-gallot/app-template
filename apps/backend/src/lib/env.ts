@@ -1,5 +1,5 @@
 import process from 'node:process'
-import z from 'zod'
+import { z } from 'zod'
 import 'dotenv/config'
 
 const envSchema = z.object({
