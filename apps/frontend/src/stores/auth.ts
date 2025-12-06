@@ -9,7 +9,7 @@ type User = NonNullable<AuthType['user']>
 export const useAuthStore = createGlobalState(
   () => {
     const me = ref<User>()
-    const fetchingUser = ref(true)
+    const firstLoad = ref(true)
 
     const router = useRouter()
     const route = useRoute()
@@ -33,13 +33,13 @@ export const useAuthStore = createGlobalState(
         resetOnExecute: false,
         onError: () => {
           me.value = undefined
-          fetchingUser.value = false
+          firstLoad.value = false
 
           handleUserRedirect()
         },
         onSuccess: (data) => {
           me.value = data?.data?.user ?? undefined
-          fetchingUser.value = false
+          firstLoad.value = false
 
           handleUserRedirect()
         },
@@ -61,7 +61,7 @@ export const useAuthStore = createGlobalState(
 
     return {
       me: computed(() => me.value),
-      fetchingUser: computed(() => fetchingUser.value),
+      firstLoad: computed(() => firstLoad.value),
       refetchMe,
       signout,
       googleSignIn,
