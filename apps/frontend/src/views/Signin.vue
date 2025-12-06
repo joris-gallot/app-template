@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useForm } from 'vee-validate'
 import { ref } from 'vue'
-import { z } from 'zod'
 
+import { z } from 'zod'
 import Error from '@/components/Error.vue'
 import { Button } from '@/components/ui/button'
 import {
@@ -13,8 +13,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { authClient } from '@/lib/auth-client'
 import { useAuthStore } from '@/stores/auth'
@@ -55,10 +55,10 @@ const onSubmit = handleSubmit(async (values) => {
     <Card class="w-[500px]">
       <CardHeader class="space-y-1">
         <CardTitle class="text-2xl">
-          Sign in to your account
+          {{ $t('signin.title') }}
         </CardTitle>
         <CardDescription>
-          Enter your email and password to sign in
+          {{ $t('signin.description') }}
         </CardDescription>
       </CardHeader>
       <CardContent class="grid gap-4">
@@ -85,14 +85,14 @@ const onSubmit = handleSubmit(async (values) => {
           </div>
           <div class="relative flex justify-center text-xs uppercase">
             <span class="bg-background px-2 text-muted-foreground">
-              Or continue with
+              {{ $t('signin.or_continue_with') }}
             </span>
           </div>
         </div>
         <form id="signin-form" class="space-y-4" @submit.prevent="onSubmit">
           <FormField v-slot="{ componentField }" name="email">
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{{ $t('signin.form.email.label') }}</FormLabel>
 
               <FormControl>
                 <Input data-testid="email-input" required autocomplete="email" type="email" placeholder="email@example.com" v-bind="componentField" />
@@ -103,7 +103,7 @@ const onSubmit = handleSubmit(async (values) => {
 
           <FormField v-slot="{ componentField }" name="password">
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{{ $t('signin.form.password.label') }}</FormLabel>
 
               <FormControl>
                 <Input data-testid="password-input" required type="password" autocomplete="current-password" v-bind="componentField" />
@@ -117,13 +117,13 @@ const onSubmit = handleSubmit(async (values) => {
       </CardContent>
       <CardFooter>
         <Button class="w-full" form="signin-form" data-testid="signin-submit" type="submit">
-          Sign in
+          {{ $t('signin.form.submit') }}
         </Button>
       </CardFooter>
       <div class="text-center text-sm">
-        Don't have an account?
+        {{ $t('signin.have_account') }}
         <RouterLink data-testid="signup-link" :to="{ name: 'Signup' }" class="underline">
-          Sign up
+          {{ $t('signin.signup') }}
         </RouterLink>
       </div>
     </Card>
