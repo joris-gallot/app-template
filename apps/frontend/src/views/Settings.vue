@@ -6,11 +6,11 @@ import { Separator } from '@/components/ui/separator'
 <template>
   <div>
     <h1 class="text-3xl font-bold">
-      Settings
+      {{ $t('settings.title') }}
     </h1>
 
     <p class="text-muted-foreground">
-      Manage your account settings.
+      {{ $t('settings.description') }}
     </p>
 
     <Separator />

@@ -2,6 +2,7 @@
 import { updateUserSchema } from '@common/schemas/user'
 import { Check, TriangleAlert } from 'lucide-vue-next'
 import { useForm } from 'vee-validate'
+import { useI18n } from 'vue-i18n'
 import { toast } from 'vue-sonner'
 
 import { Button } from '@/components/ui/button'
@@ -10,6 +11,7 @@ import { Input } from '@/components/ui/input'
 import { client } from '@/lib/trpc'
 import { useAuthStore } from '@/stores/auth'
 
+const { t } = useI18n()
 const { me, refetchMe } = useAuthStore()
 
 const { handleSubmit, resetForm, meta } = useForm({
@@ -25,8 +27,8 @@ const onSubmit = handleSubmit(async (values) => {
   await client.user.update.mutate(values)
 
   refetchMe()
-  toast.success('Updated!', {
-    description: 'Your profile has been updated successfully.',
+  toast.success(t('settings.profile.toast.success'), {
+    description: t('settings.profile.toast.success_description'),
   })
 })
 </script>
@@ -35,20 +37,20 @@ const onSubmit = handleSubmit(async (values) => {
   <form class="space-y-8" @submit="onSubmit">
     <FormField v-slot="{ componentField }" name="name">
       <FormItem>
-        <FormLabel>Username</FormLabel>
+        <FormLabel>{{ $t('settings.profile.form.username.label') }}</FormLabel>
         <FormControl>
           <Input type="text" placeholder="myname" v-bind="componentField" />
         </FormControl>
         <FormMessage />
         <FormDescription>
-          This is your public display name. It can be your real name or a pseudonym.
+          {{ $t('settings.profile.form.username.description') }}
         </FormDescription>
       </FormItem>
     </FormField>
 
     <FormField v-slot="{ componentField }" name="email">
       <FormItem>
-        <FormLabel>Email</FormLabel>
+        <FormLabel>{{ $t('settings.profile.form.email.label') }}</FormLabel>
 
         <FormControl>
           <Input type="text" placeholder="example@domain.com" v-bind="componentField" />
@@ -57,11 +59,11 @@ const onSubmit = handleSubmit(async (values) => {
         <FormDescription>
           <div v-if="me?.emailVerified" class="flex items-center gap-2 text-green-600">
             <Check class="size-4" />
-            Verified email
+            {{ $t('settings.profile.form.email.verified') }}
           </div>
           <div v-else class="flex items-center gap-2 text-amber-600">
             <TriangleAlert class="size-4" />
-            Not verified email. Check your inbox for a verification email.
+            {{ $t('settings.profile.form.email.not_verified') }}
           </div>
         </FormDescription>
       </FormItem>
@@ -69,7 +71,7 @@ const onSubmit = handleSubmit(async (values) => {
 
     <div class="flex gap-2 justify-start">
       <Button type="submit" :disabled="!meta.dirty">
-        Update profile
+        {{ $t('settings.profile.form.submit') }}
       </Button>
 
       <Button
@@ -77,7 +79,7 @@ const onSubmit = handleSubmit(async (values) => {
         variant="outline"
         @click="resetForm"
       >
-        Reset form
+        {{ $t('settings.profile.form.reset') }}
       </Button>
     </div>
   </form>

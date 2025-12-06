@@ -1,4 +1,8 @@
 {
+  "common": {
+    "github": "GitHub",
+    "google": "Google"
+  },
   "signin": {
     "title": "Sign in to your account",
     "description": "Enter your email and password to sign in",
@@ -9,10 +13,55 @@
       },
       "password": {
         "label": "Password"
-      }
+      },
+      "submit": "Sign in"
     },
-    "submit": "Sign in",
     "have_account": "Don't have an account?",
     "signup": "Sign up"
+  },
+  "signup": {
+    "title": "Create an account",
+    "description": "Enter your email below to create your account",
+    "or_continue_with": "Or continue with",
+    "form": {
+      "email": {
+        "label": "Email"
+      },
+      "password": {
+        "label": "Password"
+      },
+      "confirm_password": {
+        "label": "Confirm Password"
+      },
+      "submit": "Create account"
+    },
+    "already_have_account": "Already have an account?",
+    "signin": "Sign in"
+  },
+  "home": {
+    "title": "Home"
+  },
+  "settings": {
+    "title": "Settings",
+    "description": "Manage your account settings.",
+    "profile": {
+      "form": {
+        "username": {
+          "label": "Username",
+          "description": "This is your public display name. It can be your real name or a pseudonym."
+        },
+        "email": {
+          "label": "Email",
+          "verified": "Verified email",
+          "not_verified": "Not verified email. Check your inbox for a verification email."
+        },
+        "submit": "Update profile",
+        "reset": "Reset changes"
+      },
+      "toast": {
+        "success": "Updated!",
+        "success_description": "Your profile has been updated successfully."
+      }
+    }
   }
 }

@@ -10,7 +10,7 @@ const { state } = useAsyncState(client.hello.world.query(), null)
 <template>
   <div>
     <h1 class="text-3xl font-bold mb-2">
-      Home
+      {{ $t('home.title') }}
     </h1>
     <pre>{{ me }}</pre>
     <pre>{{ state }}</pre>
