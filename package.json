@@ -10,8 +10,8 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "typecheck": "nr -r typecheck",
-    "build": "nr -r build",
+    "typecheck": "pnpm -r typecheck",
+    "build": "pnpm -r build",
     "dev:frontend": "pnpm --filter frontend dev",
     "dev:backend": "pnpm --filter backend dev",
     "lint": "eslint",
@@ -19,7 +19,6 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:lint",
-    "@antfu/ni": "catalog:dev",
     "eslint": "catalog:lint"
   }
 }
