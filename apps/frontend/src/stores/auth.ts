@@ -3,6 +3,7 @@ import { createGlobalState, useAsyncState } from '@vueuse/core'
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { authClient } from '@/lib/auth-client'
+import { FRONTEND_URL } from '@/lib/constants'
 
 type User = NonNullable<AuthType['user']>
 
@@ -55,7 +56,7 @@ export const useAuthStore = createGlobalState(
     async function googleSignIn() {
       await authClient.signIn.social({
         provider: 'google',
-        callbackURL: 'http://localhost:3001',
+        callbackURL: FRONTEND_URL,
       })
     }
 
