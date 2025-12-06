@@ -9,47 +9,30 @@ import { env } from '../env'
 import { formatErrors } from '../error'
 import { authProcedure, publicProcedure, router } from '../trpc'
 
-async function findUniqueUsername(baseUsername: string): Promise<string> {
-  let username = baseUsername
-  let counter = 1
-
-  while (true) {
-    const existingUser = await db.query.users.findFirst({
-      where: eq(users.username, username),
-    })
-
-    if (!existingUser) {
-      return username
-    }
-
-    username = `${baseUsername}${counter}`
-    counter++
-  }
-}
-
 export const authRouter = router(
   {
     signup: publicProcedure.input(signupSchema).mutation(async ({ input }) => {
+      const emailInput = input.email.toLowerCase()
+
+      const emailAlreadyExists = await db.query.users.findFirst({
+        where: eq(users.email, emailInput),
+      })
+
+      if (emailAlreadyExists) {
+        throw new TRPCError({
+          code: 'BAD_REQUEST',
+          message: formatErrors([{ message: 'Email already taken' }]),
+        })
+      }
+
       const salt = await genSalt(10)
       const hashedPassword = await hash(input.password, salt)
 
-      const baseUsername = input.email.split('@').at(0)!
-      const uniqueUsername = await findUniqueUsername(baseUsername)
-
       const [user] = await db.insert(users).values({
-        username: uniqueUsername,
-        email: input.email.toLowerCase(),
+        username: emailInput,
+        email: emailInput,
         password: hashedPassword,
-      }).returning({ insertedId: users.id }).catch((error) => {
-        if (error.cause.constraint === 'users_email_unique') {
-          throw new TRPCError({
-            code: 'BAD_REQUEST',
-            message: formatErrors([{ message: 'Email already taken' }]),
-          })
-        }
-
-        return []
-      })
+      }).returning({ insertedId: users.id })
 
       if (!user) {
         throw new TRPCError({
