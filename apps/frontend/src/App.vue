@@ -31,5 +31,5 @@ const currentLayout = computed(() => layouts[route.meta.layout])
       <LoaderCircle class="animate-spin size-8 text-gray-600" />
     </div>
   </Transition>
-  <component :is="currentLayout" v-if="!fetchingUser" />
+  <component :is="currentLayout" v-if="!firstLoad" />
 </template>
