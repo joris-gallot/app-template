@@ -25,7 +25,7 @@ const signinSchema = z.object({
 })
 
 const signInError = ref<string>()
-const { setToken } = useAuthStore()
+const { refetchMe, googleSignIn } = useAuthStore()
 
 const { handleSubmit } = useForm({
   name: 'SignupForm',
@@ -35,7 +35,7 @@ const { handleSubmit } = useForm({
 const onSubmit = handleSubmit(async (values) => {
   signInError.value = undefined
 
-  const { data, error } = await authClient.signIn.email({
+  const { error } = await authClient.signIn.email({
     email: values.email,
     password: values.password,
   })
@@ -46,17 +46,8 @@ const onSubmit = handleSubmit(async (values) => {
     return
   }
 
-  if (data?.token) {
-    setToken(data?.token)
-  }
+  refetchMe()
 })
-
-async function googleSignIn() {
-  await authClient.signIn.social({
-    provider: 'google',
-    callbackURL: 'http://localhost:3001',
-  })
-}
 </script>
 
 <template>

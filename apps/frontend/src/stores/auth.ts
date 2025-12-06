@@ -1,57 +1,70 @@
-import { createGlobalState, useAsyncState, useLocalStorage } from '@vueuse/core'
-import { computed, watch } from 'vue'
+import type { AuthType } from '@common/index'
+import { createGlobalState, useAsyncState } from '@vueuse/core'
+import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { client } from '@/lib/trpc'
+import { authClient } from '@/lib/auth-client'
+
+type User = NonNullable<AuthType['user']>
 
 export const useAuthStore = createGlobalState(
   () => {
-    const token = useLocalStorage<string | undefined>('jwt', undefined)
+    const me = ref<User>()
+    const fetchingUser = ref(true)
 
-    const authRoutes = ['Signin', 'Signup']
+    const router = useRouter()
+    const route = useRoute()
 
-    const { state: me, execute: refetchMe } = useAsyncState(
-      () => client.user.me.query(),
+    function handleUserRedirect() {
+      const authRoutes = ['Signin', 'Signup']
+
+      if (me.value && authRoutes.includes(route.name as string)) {
+        router.push({ name: 'Home' })
+      }
+
+      if (!me.value && !authRoutes.includes(route.name as string)) {
+        router.push({ name: 'Signin' })
+      }
+    }
+
+    const { execute: refetchMe } = useAsyncState(
+      () => authClient.getSession(),
       undefined,
       {
         resetOnExecute: false,
         onError: () => {
           me.value = undefined
+          fetchingUser.value = false
+
+          handleUserRedirect()
+        },
+        onSuccess: (data) => {
+          me.value = data?.data?.user ?? undefined
+          fetchingUser.value = false
+
+          handleUserRedirect()
         },
       },
     )
 
-    const router = useRouter()
-    const route = useRoute()
-
-    function setToken(t: string | undefined) {
-      token.value = t
+    function signout() {
+      authClient.signOut()
+      me.value = undefined
+      handleUserRedirect()
     }
 
-    watch(token, () => {
-      refetchMe()
-    })
-
-    watch(me, (newMe, oldMe) => {
-      if (oldMe === undefined && newMe !== undefined && authRoutes.includes(route.name as string)) {
-        router.push({ name: 'Home' })
-      }
-      else if (newMe === undefined && !authRoutes.includes(route.name as string)) {
-        router.push({ name: 'Signin' })
-      }
-    })
-
-    const isAuthenticated = computed(() => Boolean(me.value))
-
-    if (!isAuthenticated.value && !authRoutes.includes(route.name as string)) {
-      router.push({ name: 'Signin' })
+    async function googleSignIn() {
+      await authClient.signIn.social({
+        provider: 'google',
+        callbackURL: 'http://localhost:3001',
+      })
     }
 
     return {
-      me,
+      me: computed(() => me.value),
+      fetchingUser: computed(() => fetchingUser.value),
       refetchMe,
-      isAuthenticated,
-      token: computed(() => token.value),
-      setToken,
+      signout,
+      googleSignIn,
     }
   },
 )

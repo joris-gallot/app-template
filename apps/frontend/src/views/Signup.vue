@@ -18,7 +18,7 @@ import { authClient } from '@/lib/auth-client'
 import { useAuthStore } from '@/stores/auth'
 
 const signUpError = ref<string>()
-const { setToken } = useAuthStore()
+const { refetchMe, googleSignIn } = useAuthStore()
 
 const signupSchema = z.object({
   email: z.email({ error: 'Email must be a valid email address' }),
@@ -37,7 +37,7 @@ const { handleSubmit } = useForm({
 const onSubmit = handleSubmit(async (values) => {
   signUpError.value = undefined
 
-  const { data, error } = await authClient.signUp.email({
+  const { error } = await authClient.signUp.email({
     name: values.email,
     email: values.email,
     password: values.password,
@@ -45,21 +45,11 @@ const onSubmit = handleSubmit(async (values) => {
 
   if (error?.message) {
     signUpError.value = error.message
-
     return
   }
 
-  if (data?.token) {
-    setToken(data?.token)
-  }
+  refetchMe()
 })
-
-async function googleSignIn() {
-  await authClient.signIn.social({
-    provider: 'google',
-    callbackURL: 'http://localhost:3001',
-  })
-}
 </script>
 
 <template>
