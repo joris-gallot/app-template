@@ -15,7 +15,7 @@ const layouts: Record<Layout, unknown> = {
   app: AppLayout,
 }
 
-const currentLayout = computed(() => layouts[route.meta.layout])
+const currentLayout = computed(() => route.meta.layout ? layouts[route.meta.layout] : AppLayout)
 </script>
 
 <template>

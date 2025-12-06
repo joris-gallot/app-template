@@ -3,6 +3,9 @@ import 'vue-router'
 
 declare module 'vue-router' {
   interface RouteMeta {
-    layout: Layout
+    /**
+     *  @default 'app'
+     */
+    layout?: Layout
   }
 }
