@@ -16,6 +16,7 @@ catalogs:
     bcrypt-ts: ^8.0.0
     drizzle-kit: ^0.31.8
     drizzle-orm: ^0.44.7
+    knex: ^3.1.0
     pg: ^8.16.3
   dev:
     '@types/node': ^20.11.17

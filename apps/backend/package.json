@@ -6,7 +6,8 @@
     "typecheck": "tsc --noEmit",
     "build": "tsc",
     "start": "node dist/index.js",
-    "db:push": "drizzle-kit push"
+    "db:push": "drizzle-kit push",
+    "migrate": "tsx scripts/migrate.ts"
   },
   "dependencies": {
     "@hono/node-server": "catalog:hono",
@@ -16,6 +17,7 @@
     "dotenv": "catalog:dev",
     "drizzle-orm": "catalog:db",
     "hono": "catalog:hono",
+    "knex": "catalog:db",
     "pg": "catalog:db",
     "pino": "catalog:log",
     "zod": "catalog:zod"
