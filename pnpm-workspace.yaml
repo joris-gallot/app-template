@@ -14,7 +14,7 @@ catalogs:
   dev:
     '@antfu/ni': ^25.0.0
     '@types/node': ^20.11.17
-    dotenv: ^16.6.1
+    dotenv: ^17.2.3
     tsx: ^4.21.0
     typescript: ^5.9.3
     typestep: ^0.5.2
