@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useAsyncState } from '@vueuse/core'
+import { client } from '@/lib/trpc'
 import { useAuthStore } from '@/stores/auth'
-import { client } from '@/trpc'
 
 const { me } = useAuthStore()
 const { state } = useAsyncState(client.hello.world.query(), null)
