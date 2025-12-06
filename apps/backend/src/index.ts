@@ -4,8 +4,8 @@ import { trpcServer } from '@hono/trpc-server'
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import pino from 'pino'
-import { createContext } from './context'
 import { appRouter } from './router'
+import { createContext } from './trpc/context'
 
 const app = new Hono()
 
